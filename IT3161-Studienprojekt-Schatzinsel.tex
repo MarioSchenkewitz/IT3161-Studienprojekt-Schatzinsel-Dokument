@@ -233,7 +233,7 @@ numbersep=5pt
 %%%%%%%%%%%% Thema
 \newcommand{\topic}{Schatzinsel}
 %%%%%%%%%%%% Untertitel
-\newcommand{\subtopic}{Entwicklung eines "Spiel" durch objektorientiertes Programmieren}
+\newcommand{\subtopic}{Entwickeln eines Spiels durch objektorientiertes Programmieren}
 %%%%%%%%%%%% Studienbereich
 \newcommand{\studienbereich}{Technik}
 %%%%%%%%%%%% Fachrichtung
@@ -364,17 +364,61 @@ Hochschule für Wirtschaft und Recht Berlin}
 %%%%%%%%%%% Einführung
 
 \chapter{Einleitung}\label{sec:einleitung}
+Die \gls{OOP} ist ein heutzutage weit verbreitetes Computerprogrammiermodell oder Programmierparadigma. In der \gls{OOP} werden Anwendungen um so genannte Objekte und deren Daten herum strukturiert und nicht um Funktionen oder Logik. So fokussiert sich die \gls{OOP} auf Objekte mit denen eine Anwendung interagiert, diese Objekte können als Datenfeld mit Attributen und eigenem Verhalten angesehen werden.
 
+Einen tieferen Einblick in das Thema der \gls{OOP} soll der Abschnitt \ref{sec:Gundlagen} bieten, in dem die Basis für die \gls{OOP} näher erörtert wird.
+
+Thema dieses Studienprojektes ist es sich dieses Programmierparadigma zu nutze zu machen um ein Spiel zu entwickeln.\\
+Der Titel des Spiels ist \glqq Schatzinsel\grqq, es handelt von drei Piraten die sich auf einer Insel befinden, auf der ebenfalls ein Schatz versteckt ist. Es ist ihnen unbekannt wo sich dieser Schatz befinden. Durch zufällige Bewegung über die Insel wollen sie versuchen diesen Schatz zu finden. Jeder der Piraten hat verschiedene Eigenschaften, wie zum Beispiel Geschwindigkeit.\\
+Sobald einer der Piraten den Schatz entdeckt, ruft er die anderen zu sich. Am Ende versammeln sie sich alle um den Schatz.
+
+Dieser Umstand soll durch das Spiel modelliert und gegebenenfalls erweitert werden.
 
 \chapter{Grundlagen}\label{sec:Gundlagen}
 \section{Objektorientierte Programmierung}
-\cite{OOPL}
+\gls{OOPL} eignen sich durch die Konzentration auf die Objekte mit denen das Programm interagieren soll dazu, dass Software Wartbar und lesbar bleibt. Objekte und ihre Methoden können getrennt von einander erstellt und Programmiert werden. Diese Unterteilung in Einzelteile ermöglicht des weiteren die Wiederverwendbarkeit von Code, also dem Quelltext, entweder in dem die Klasse selbst wiederverwendet wird, oder eine andere Klasse von ihr erbt. Dazu mehr im Abschnitt \ref{sec:Vererbung}
 
-\section{Datenabstraktion}
+\gls{OOP} ist ein Programmierstil, der mittlerweile in Unternehmen, Industrie und akademischen Kreisen seinen Platz gefunden hat. Es wird ein natürlicheres und dadurch ein mächtigeres Entwurfsparadigma insofern erwartet, dass ein Programmierer produktiver ist, wenn das Anwendungsmodell näher am Problem modelliert werden kann, dass gelöst wird.\\
+Anders gesagt ist eine \gls{OOPL} mächtiger, weil es einem Programmierer erlaubt ein Problem zu lösen, dass die Struktur einer Welt nachbildet in welcher das Problem entstand. Vertrautheit mit solch einer Sprache eröffnet Wege zu einer klaren und natürlichen Lösung. \cite{OOPL}
 
+Es werden also im betrachteten Fall der Schatzinsel die Objekte, die aus der echten Welt bekannt sind, so modelliert, dass die Interaktionen und Verhaltensweisen natürlich in einer Anwendung modelliert werden können.
+
+\section{Datenabstraktion und Verkapselung}
+Einer der ersten Schritte bei der \gls{OOP} ist es alle Objekte zu sammeln, die manipuliert werden müssen. Im Fall vom Spiel \glqq Schatzinsel\grqq gibt es zum Beispiel Piraten, eine Insel, ein Schatz, aber auch eine graphische Benutzeroberfläche die alle als Objekt betrachtet werden können. Sie müssen untereinander aber auch mit dem Benutzer interagieren können.
+
+Einer der großen Durchbrüche bei der Gestaltung von Programmiersprachen geschah, als es ermöglicht wurde, dass Programmierer eigene Datentypen definieren konnten. C.A.R. Hoare's record class in Simula67 gilt als die Quelle der Idee.\cite{OOPL}
+Verbreitung der durch Programmierer definierten fand durch die Sprache Pascal statt. \cite{Pascal}
+
+So kann in Pascal ein Verbund definiert werden, der selbst aus Daten besteht. 
+
+\begin{lstlisting}[language=Pascal, caption=Verbund Beispiel Definition \cite{PascalVerbund}]
+TYPE Auto = RECORD
+KFZ: String[12];
+Gewicht: Real;
+AnzPassagiere: Integer;
+END;
+\end{lstlisting}
+
+Dieses Beispiel definiert einen neuen Datentyp \textit{Auto}, in dem jeweils die Art des KFZ, das Gewischt und die Anzahl der Passagiere angegeben wird. Nun kann man den Typen \textit{Auto} nutzen um beliebig viele Daten-Entitäten zu erstellen.
+
+\begin{lstlisting}[language=Pascal, caption=Verbund Beispiel Instantiierung \cite{PascalVerbund}]
+VAR a : Auto;
+BEGIN
+a.KFZ := 'B XY 123456';
+a.Gewicht := 555.77;
+a.AnzPassagiere := 5;
+END;
+\end{lstlisting}
+
+Manipulationen der Daten innerhalb des Verbunds werden extern vom Datentyp selbst betrachtet, die Syntax der Sprache indiziert somit nur eine Gruppierung von Daten.
+
+Verbunde in Pascal werden homogen genannt, wenn alle Daten innerhalb des Verbunds den selben Typ haben. Sie sind heterogen, wenn es verschiedene Typen, wie im Beispiel, gibt.
+
+%Referenz für Mario: Seite 27 OOPL
 
 \section{Polymorphismus}
 
+\section{Vererbung}\label{sec:Vererbung}
 
 \section{Verwandte Konzepte}
 
@@ -382,6 +426,10 @@ Hochschule für Wirtschaft und Recht Berlin}
 
 
 \chapter{Realisierung}\label{sec:Realisierung}
+\section{Verwendete Plattformen}
+\subsection{Git und Github}
+\subsection{Discord}
+
 \section{Zusammenfassung der Anforderungen}
 
 \section{Anforderung 1}
