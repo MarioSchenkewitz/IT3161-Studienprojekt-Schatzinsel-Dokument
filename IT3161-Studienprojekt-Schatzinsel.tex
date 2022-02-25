@@ -1,0 +1,483 @@
+%% Vorlage Bachelorarbeit
+
+%% Versionshistorie:
+
+%% v1.0: Erstellung durch Johannes Woske, IT2010, j.woske+latex@gmail.com
+%% v2.0: Überarbeitung und Ergänzung durch Anne Traulsen, IT2015, a.traulsen+latex@gmail.com
+
+\documentclass[
+	12pt, %Schriftgröße
+	a4paper,
+	listof=totoc, %Inhaltsverzeichniseinträge für Listen (z.B. Abbildungen)
+	bibliography=totoc, %Inhaltsverzeichniseinträge f+r Quellen
+	numbers=noenddot, %Entfernt Punkt hinter Gliederungsnummern
+	ngerman, %Sprachpaket
+	headsepline, %Headertrennlinie
+	%footsepline, %Footertrennlinie
+	oneside %einseitiges Druckformat %%% Unterdrücken der leeren Seite nach Titelblatt
+	]{scrbook} %Dokumentenklasse (Koma-Script)
+\usepackage[section]{placeins}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{url}
+\usepackage{graphicx} %Bilder einfügen
+%\usepackage{pdfpages} %PDF einfügen
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[right]{eurosym} %Euro-Zeichen
+\usepackage{amssymb}
+\usepackage{cite} %Quellenangaben
+\usepackage{setspace} % Zeilenabstand
+\usepackage[ 
+   colorlinks,        % Links ohne Umrandungen in zu wählender Farbe 
+   linkcolor=black,   % Farbe interner Verweise 
+   filecolor=black,   % Farbe externer Verweise 
+   citecolor=black,   % Farbe von Zitaten 
+   urlcolor=blue	  % Farbe von Links
+   ]{hyperref} %Verlinkungen
+\usepackage{bookmark}
+\usepackage[figure]{hypcap}
+\usepackage[ngerman]{translator}
+\usepackage{blindtext} % Lorem-Ipsum-Plugin
+\usepackage{scrhack}
+%\usepackage[
+	%nonumberlist, %keine Seitenzahlen anzeigen
+	%acronym,      %ein Abkürzungsverzeichnis erstellen
+	%toc,          %Einträge im Inhaltsverzeichnis
+	%section      %im Inhaltsverzeichnis auf section-Ebene erscheinen
+	%]
+%{glossaries}
+\usepackage{outlines}
+
+\usepackage{listings,xcolor} %Codeanzeige
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Code Definition
+%%
+\lstdefinelanguage{powershell}%
+  {
+	alsodigit = {-},   
+   morekeywords={abstract,break,case,catch,const,continue,do,else,elseif,%
+      end,export,false,for,function,immutable,import,importall,if,in,%
+      macro,module,otherwise,quote,return,switch,true,try,type,typealias,%
+      using,while,new-object,psobject,Get-Command,Process,Get-ADUser,Select,ActiveXObject},%
+   sensitive=true,%
+   alsoother={\$},%
+   morecomment=[l]\#,%
+   morecomment=[n]{\#=}{=\#},%
+   morestring=[s]{"}{"},%
+   morestring=[m]{'}{'},%
+}[keywords,comments,strings]%
+
+%\lstset{
+%	language         = [Sharp]C,
+%	basicstyle       = \ttfamily,
+%    numbers=left, 
+%    numberstyle=\tiny, 
+%    numbersep=5pt,
+%    breaklines=true,
+%    frame=single,
+%    escapeinside={(*@}{@*)}, %nicht anzuzeigende Ausdrücke, z.B. für Labels
+%    language=sh,
+%    basicstyle=\ttfamily\fontsize{10}{12}\selectfont,
+%    keywordstyle    = \color{dkblue},
+%    stringstyle     = \color{red},
+%    identifierstyle = \color{black},
+%    commentstyle    = \color{gray},
+%    emph            =[1]{php},
+%    emphstyle       =[1]\color{black},
+%    emph            =[2]{if,and,or,else,Parameter,-Property},
+%    emphstyle       =[2]\color{dkyellow},
+%    } 
+
+\usepackage{color}
+\definecolor{bluekeywords}{rgb}{0,0,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.64,0.08,0.08}
+\definecolor{xmlcomments}{rgb}{0.5,0.5,0.5}
+\definecolor{types}{rgb}{0.17,0.57,0.68}
+
+\usepackage{listings}
+
+\lstset{language=csh,
+captionpos=b,
+%numbers=left, %Nummerierung
+%numberstyle=\tiny, % kleine Zeilennummern
+frame=single, % Kasten, lines alternativ
+showspaces=false,
+showtabs=false,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+commentstyle=\color{greencomments},
+morekeywords={partial, var, value, get, set},
+keywordstyle=\color{bluekeywords},
+stringstyle=\color{redstrings},
+basicstyle=\ttfamily\small,
+captionpos=b,
+numbers=left, 
+numberstyle=\tiny, 
+numbersep=5pt
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Sonderformatierung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Seitenabstände definieren
+\geometry{verbose,tmargin=3cm,bmargin=2cm,lmargin=3cm,rmargin=3cm} 
+
+% Hurenkinder und Schusterjungen verhindern (Ja, das heißt wirklich so!!!)
+\clubpenalty = 10000 \widowpenalty = 10000 \displaywidowpenalty = 10000 
+
+\newcommand{\footfigref}[1]{\footnote{Abb. \ref{#1} auf Seite \pageref{#1}}}
+
+%% Bei Referenzen im Text wird jetzt bei allen Ebenen "Kapitel" vorgestellt, z.b. Kapitel 2, Kapitel 2.2, Kapitel 6.3.2
+\addto\extrasngerman{%
+    \def\sectionautorefname{Kapitel}%
+    \def\subsectionautorefname{Kapitel}%
+    \def\subsubsectionautorefname{Kapitel}%
+    }
+
+% Vertikaler Abstand zwischen Ende Textblock - Ende Fußzeile --> Abstand der Seitenzahl von Rand erhöhen 
+\setlength{\footskip}{10mm}
+
+% Abstand vor/nach Überschriften verändern
+
+\RedeclareSectionCommand[%
+    beforeskip=0.5\baselineskip,
+    afterskip=0.5\baselineskip
+]{chapter}
+
+\RedeclareSectionCommand[%
+    beforeskip=0.5\baselineskip,
+    afterskip=0.5\baselineskip
+]{section}
+
+\RedeclareSectionCommand[%
+    beforeskip=0.1\baselineskip,
+    afterskip=0.1\baselineskip
+]{subsection}
+
+\RedeclareSectionCommand[%
+    beforeskip=0.01\baselineskip,
+    %%afterskip=0.2\baselineskip
+]{paragraph}
+
+\usepackage[acronym, nonumberlist]{glossaries} %% use after hyperref %Glossar-Paket laden
+
+
+\setlength{\abovecaptionskip}{4pt}  % 1pc=12pt 
+\setlength{\belowcaptionskip}{0pt}
+%\setlength{\textfloatsep}{4pt}
+\setlength{\intextsep}{1pc}
+
+%% Verkleinerung der Textgröße unter Abbildungen
+\addtokomafont{caption}{\small}
+
+% falsche Default-Silbentrennung überschreiben
+\include{hyphenation}
+
+% Den Punkt am Ende der Glossareinträge deaktivieren
+\renewcommand*{\glspostdescription}{}
+
+%Glossar-Befehle anschalten
+%\makeglossaries
+\makenoidxglossaries
+
+% sorgt dafür, dass bei Leerzeile die Einrückung verhindert und stattdessen eine Leerzeile eingefügt wird % erspart bigskips und erhöht die Lesbarkeit im LaTeX-Text 
+\KOMAoptions{parskip=full*}
+
+% ändert Titelschriftart in Serifen-Normalschriftart
+\addtokomafont{disposition}{\rmfamily} 
+
+
+
+\loadglsentries{glossar.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Textbausteine
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Studentennamen
+\newcommand{\studentNameEins}{Jahn, Marko}
+\newcommand{\studentNameZwei}{Schenkewitz, Mario}
+\newcommand{\studentNameDrei}{Zilius, Sven}
+%%%%%%%%%%%% Typ der Arbeit
+\newcommand{\type}{Studienprojekt I}
+%%%%%%%%%%%% Thema
+\newcommand{\topic}{Schatzinsel}
+%%%%%%%%%%%% Untertitel
+\newcommand{\subtopic}{Entwicklung eines "Spiel" durch objektorientiertes Programmieren}
+%%%%%%%%%%%% Studienbereich
+\newcommand{\studienbereich}{Technik}
+%%%%%%%%%%%% Fachrichtung
+\newcommand{\fachrichtung}{Duales Studium Wirtschaft • Technik}
+%%%%%%%%%%%% Studiengang
+\newcommand{\studiengang}{Informatik}
+%%%%%%%%%%%% Betrieb
+\newcommand{\company}{}
+%%%%%%%%%%%% Betreuer HWR
+\newcommand{\betreuerHS}{Zimmermann, Arthur}
+%%%%%%%%%%%% Betreuer Unternehmen
+\newcommand{\betreuerUnt}{}
+%%%%%%%%%%%% Jahrgang
+\newcommand{\jahrgang}{2020}
+%%%%%%%%%%%% Matrikelnummer
+\newcommand{\MatrEins}{}
+\newcommand{\MatrZwei}{685593}
+\newcommand{\MatrDrei}{}
+%%%%%%%%%%%% Modul
+\newcommand{\Modul}{IT3161, Studienprojekt I}
+%%%%%%%%%%%% Anzahl Wörter
+\newcommand{\wordsnr}{TDB}
+%%%%%%%%%%%% Fertigstellungsdatum
+\newcommand{\Dateofcompletion}{TBD}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%>>>>>>>
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%>>>>>>>
+%%%%%%%%%%% Titelblatt
+
+%% Anordnung und Aussehen von Titel und Untertitel
+
+\subject{\type}
+
+\title{
+\normalfont\endgraf\rule{\textwidth}{.4pt}
+\begingroup
+	\centering
+	\linespread{1.5}
+	\huge\topic
+\endgroup
+\linespread{1}
+\ \\ % Falls kein Subtopic, auskommentieren
+\ \\ % Falls kein Subtopic, auskommentieren
+\large\subtopic % Falls kein Subtopic, auskommentieren
+\endgraf\rule{\textwidth}{.4pt}
+}
+ 
+%%Eigentlich nicht besonders schön, aber Koma erlaubt die Anordnung eines weiteren Felden (hier: Fachbereich) nicht
+\date{\normalsize fertiggestellt am \Dateofcompletion \\ \textbullet \\ Fachbereich Duales Studium Wirtschaft / Technik \\
+Hochschule für Wirtschaft und Recht Berlin}
+%% \date muss leer angegeben werden, um die Default-Datumsanzeige zu unterdrücken
+
+\publishers{
+	\begin{tabular}{l l}
+	\textbf{\normalsize{}} & \normalsize{}  \tabularnewline
+	%\textbf{\normalsize{}} & \normalsize{}  \tabularnewline
+	\textbf{\normalsize{Name:}} & \normalsize{\studentNameEins, \MatrEins} \tabularnewline
+	\textbf{\normalsize{Name:}} & \normalsize{\studentNameZwei, \MatrZwei} \tabularnewline
+	\textbf{\normalsize{Name:}} & \normalsize{\studentNameDrei, \MatrDrei} \tabularnewline
+	\textbf{\normalsize{Fachrichtung:}} & \normalsize{\fachrichtung} \tabularnewline
+	\textbf{\normalsize{Studiengang:}} & \normalsize{\studiengang} \tabularnewline
+	\textbf{\normalsize{Studienjahrgang:}} & \normalsize{\jahrgang} \tabularnewline
+	\textbf{\normalsize{Betreuer HS:}} & \normalsize{\betreuerHS} \tabularnewline
+	\textbf{\normalsize{Anzahl der Wörter:}} & \normalsize{\wordsnr}\\
+	
+%	\normalsize Vom Betreuer zur Kenntnis genommen:\vspace{2em}\\
+%	\end{tabular}
+%	\normalsize
+%	\begin{tabular}{lp{10em}l} 
+% 	\hspace{1cm}   && \hspace{4cm} \\\cline{1-1}\cline{3-3} 
+% 	Ort, Datum     && \betreuerHS
+	\end{tabular}
+	}
+
+\titlehead{\begin{center}
+    \includegraphics[scale=1]{bilder/HWR-Logo.jpg}
+    \end{center}
+    }
+
+\maketitle
+
+\onehalfspacing % anderthalbfacher Zeilenabstand
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Dokumenteninhalt START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Abstract
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+
+\pagenumbering{Roman} % römische Seitenzahlen
+
+\chapter*{Kurzfassung}
+\addcontentsline{toc}{chapter}{Kurzfassung}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Inhaltsverzeichnis, Tabellen, Abbildungen, etc.
+\newpage
+
+\tableofcontents{}
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+
+\listoffigures
+%\listoftables
+
+%\section*{Hinweis}
+%
+%Aus Gründen der besseren Lesbarkeit wird im Text verallgemeinernd die weibliche Form verwendet. Diese Formulierungen umfassen gleichermaßen weibliche und männliche Personen.
+%\clearpage
+
+\addcontentsline{toc}{chapter}{Akronyme}
+\printnoidxglossaries
+
+\clearpage
+
+%% arabische Seitenzahlen
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% Einführung
+
+\chapter{Einleitung}\label{sec:einleitung}
+
+
+\chapter{Grundlagen}\label{sec:Gundlagen}
+\section{Objektorientierte Programmierung}
+\cite{OOPL}
+
+\section{Datenabstraktion}
+
+
+\section{Polymorphismus}
+
+
+\section{Verwandte Konzepte}
+
+\section{Auswahl des Programmiersprache und Umgebung}
+
+
+\chapter{Realisierung}\label{sec:Realisierung}
+\section{Zusammenfassung der Anforderungen}
+
+\section{Anforderung 1}
+\subsection{Ansatz}
+\subsection{Umsetzung}
+
+\section{Anforderung 2}
+\subsection{Ansatz}
+\subsection{Umsetzung}
+
+\section{Anforderung 3}
+\subsection{Ansatz}
+\subsection{Umsetzung}
+
+\section{Anforderung 4}
+\subsection{Ansatz}
+\subsection{Umsetzung}
+
+\chapter{Ergebnisse}
+
+\chapter{Fazit}
+
+
+\chapter{Ausblick}
+
+
+
+%%% Codesnippets
+
+%% Liste
+%\textbf{Grundwerte}
+%\begin{itemize}\vspace{-1em}
+%\setlength{\itemsep}{-1em}
+%	\item \textbf{Integrität}: Die Daten oder das System sind nicht von Unbefugten veränderbar. Alle Änderungen müssen nachvollziehbar sein.
+%	\item \textbf{Vertraulichkeit}: Die Daten dürfen nur von autorisierten Personen abgerufen und verändert werden. Dies gilt sowohl für gespeicherte Dateien, als auch die Datenübertragung.
+%	\item \textbf{Verfügbarkeit}: Die Daten und Systeme müssen erreichbar sein. Systemausfälle müssen vermieden werden. Wenn man eine Verfügbarkeit von "four nines" (99.99\% der Zeit) gewährleisten möchte, dann sind z.B. nur Ausfälle für 52:36 Minuten pro Jahr vertretbar.
+%\end{itemize}
+
+%% Bild
+%\begin{figure}[H]
+%  \centering
+%  \includegraphics[scale=0.5]{bilder/Netzplan.JPG}
+%  \label{fig:kernabsicherung}       %fig:ID
+%  \caption[Beispielhafter Netzplan nach BSI 200-2]{\cite{BSI200_2} Seite 90: Auszug aus dem bereinigten Netzplan der RECPLAST GmbH (Teilausschnitt)}    %Bildunterschrift
+%\end{figure}
+
+
+%% Code
+%\begin{lstlisting}[language=csh, caption=Python example]
+%public async Task<IActionResult> Archiv()
+%    {
+%        string UserPersId = User.Identity?.Name ?? "Empty";
+%
+%        return View(await _context.Dokumente.Where(x => x.PersonalNummer == UserPersId).ToListAsync());
+%    }
+%//test
+%\end{lstlisting}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Quellen
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliography{literatur}
+
+\bibliographystyle{hwrbib}
+%% \bibliographystyle{alpha} %% tu es nicht, niemals, das ist eklig, nicht einkommentieren
+
+\chapter*{Ehrenwörtliche Erklärung}
+\addcontentsline{toc}{chapter}{Ehrenwörtliche Erklärung}
+
+% Keine Kopf- und Fußzeilen ausgeben
+\thispagestyle{empty}
+% Aber trotzdem ins Inhaltsverzeichnis aufnehmen
+%\addcontentsline{toc}{section}{Eidesstattliche Erklärung}
+
+% Hier der offizielle Text der eidesstattlichen Erklärung
+Ich erkläre ehrenwörtlich:
+\begin{enumerate}
+	\item dass ich meine Bachelor-Thesis selbstständig verfasst habe,
+	\item dass ich die Übernahme wörtlicher Zitate aus der Literatur sowie die Verwendung der Gedanken anderer Autoren an den entsprechenden Stellen innerhalb der Arbeit gekennzeichnet habe,
+	\item dass ich meine Bachelor-Thesis bei keiner anderen Prüfung vorgelegt habe.
+\end{enumerate}
+Ich bin mir bewusst, dass eine falsche Erklärung rechtliche Folgen haben wird.
+% Etwas Abstand für die Unterschrift
+\vspace{2cm}
+
+% Hier kommt die Unterschrift drüber
+\begin{tabular}{lp{4em}l} 
+ \hspace{5cm}   && \hspace{6cm} \\\cline{1-1}\cline{3-3} 
+ Ort, Datum     && \studentNameEins \\ [10ex]
+ \hspace{5cm}   && \hspace{6cm} \\\cline{1-1}\cline{3-3} 
+ Ort, Datum     && \studentNameZwei \\ [10ex]
+ \hspace{5cm}   && \hspace{6cm} \\\cline{1-1}\cline{3-3} 
+ Ort, Datum     && \studentNameDrei \\ [10ex]
+\end{tabular}
+
+\end{document}
+
