@@ -379,19 +379,19 @@ Dieser Umstand soll durch das Spiel modelliert und gegebenenfalls erweitert werd
 \gls{OOPL} eignen sich durch die Konzentration auf die Objekte mit denen das Programm interagieren soll dazu, dass Software Wartbar und lesbar bleibt. Objekte und ihre Methoden können getrennt von einander erstellt und Programmiert werden. Diese Unterteilung in Einzelteile ermöglicht des weiteren die Wiederverwendbarkeit von Code, also dem Quelltext, entweder in dem die Klasse selbst wiederverwendet wird, oder eine andere Klasse von ihr erbt. Dazu mehr im Abschnitt \ref{sec:Vererbung}
 
 \gls{OOP} ist ein Programmierstil, der mittlerweile in Unternehmen, Industrie und akademischen Kreisen seinen Platz gefunden hat. Es wird ein natürlicheres und dadurch ein mächtigeres Entwurfsparadigma insofern erwartet, dass ein Programmierer produktiver ist, wenn das Anwendungsmodell näher am Problem modelliert werden kann, dass gelöst wird.\\
-Anders gesagt ist eine \gls{OOPL} mächtiger, weil es einem Programmierer erlaubt ein Problem zu lösen, dass die Struktur einer Welt nachbildet in welcher das Problem entstand. Vertrautheit mit solch einer Sprache eröffnet Wege zu einer klaren und natürlichen Lösung. \cite{OOPL}
+Anders gesagt ist eine \gls{OOPL} mächtiger, weil es einem Programmierer erlaubt ein Problem zu lösen, dass die Struktur einer Welt nachbildet in welcher das Problem entstand. Vertrautheit mit solch einer Sprache eröffnet Wege zu einer klaren und natürlichen Lösung \cite{OOPL}.
 
 Es werden also im betrachteten Fall der Schatzinsel die Objekte, die aus der echten Welt bekannt sind, so modelliert, dass die Interaktionen und Verhaltensweisen natürlich in einer Anwendung modelliert werden können.
 
 \section{Datenabstraktion und Verkapselung}
-Einer der ersten Schritte bei der \gls{OOP} ist es alle Objekte zu sammeln, die manipuliert werden müssen. Im Fall vom Spiel \glqq Schatzinsel\grqq gibt es zum Beispiel Piraten, eine Insel, ein Schatz, aber auch eine graphische Benutzeroberfläche die alle als Objekt betrachtet werden können. Sie müssen untereinander aber auch mit dem Benutzer interagieren können.
+Einer der ersten Schritte bei der \gls{OOP} ist es alle Objekte zu sammeln, die manipuliert werden müssen. Im Fall des Spiels \glqq Schatzinsel\grqq \hspace{0.1cm}gibt es zum Beispiel Piraten, eine Insel, ein Schatz, aber auch eine graphische Benutzeroberfläche die alle als Objekt betrachtet werden können. Sie müssen untereinander aber auch mit dem Benutzer interagieren können.
 
 Einer der großen Durchbrüche bei der Gestaltung von Programmiersprachen geschah, als es ermöglicht wurde, dass Programmierer eigene Datentypen definieren konnten. C.A.R. Hoare's record class in Simula67 gilt als die Quelle der Idee.\cite{OOPL}
-Verbreitung der durch Programmierer definierten fand durch die Sprache Pascal statt. \cite{Pascal}
+Verbreitung des, durch Programmierer definierten, Datentyps fand durch die Sprache Pascal statt. \cite{Pascal}
 
-So kann in Pascal ein Verbund definiert werden, der selbst aus Daten besteht. 
+So kann in Pascal ein Verbund definiert werden, der selbst aus Daten besteht, siehe Listing \ref{lst:record1}. 
 
-\begin{lstlisting}[language=Pascal, caption=Verbund Beispiel Definition \cite{PascalVerbund}]
+\begin{lstlisting}[language=Pascal, caption=Verbund Beispiel Definition \cite{PascalVerbund}, label={lst:record1}]
 TYPE Auto = RECORD
 KFZ: String[12];
 Gewicht: Real;
@@ -399,9 +399,9 @@ AnzPassagiere: Integer;
 END;
 \end{lstlisting}
 
-Dieses Beispiel definiert einen neuen Datentyp \textit{Auto}, in dem jeweils die Art des KFZ, das Gewischt und die Anzahl der Passagiere angegeben wird. Nun kann man den Typen \textit{Auto} nutzen um beliebig viele Daten-Entitäten zu erstellen.
+Dieses Beispiel (Listing \ref{lst:record2}) definiert einen neuen Datentyp \textit{Auto}, in dem jeweils die Art des KFZ, das Gewischt und die Anzahl der Passagiere angegeben wird. Nun kann man den Typen \textit{Auto} nutzen um beliebig viele Daten-Entitäten zu erstellen.
 
-\begin{lstlisting}[language=Pascal, caption=Verbund Beispiel Instantiierung \cite{PascalVerbund}]
+\begin{lstlisting}[language=Pascal, caption=Verbund Beispiel Instantiierung \cite{PascalVerbund}, label={lst:record2}]
 VAR a : Auto;
 BEGIN
 a.KFZ := 'B XY 123456';
@@ -414,16 +414,41 @@ Manipulationen der Daten innerhalb des Verbunds werden extern vom Datentyp selbs
 
 Verbunde in Pascal werden homogen genannt, wenn alle Daten innerhalb des Verbunds den selben Typ haben. Sie sind heterogen, wenn es verschiedene Typen, wie im Beispiel, gibt.
 
-%Referenz für Mario: Seite 27 OOPL
+Pascal erlaubt zwar die Erstellung von heterogenen Verbunden, jedoch ist es nicht möglich in diesen Verbunden Operationen einzubauen. Anders als bei Pascal ist die bei Java zum Beispiel möglich.  
 
-\section{Polymorphismus}
+\begin{lstlisting}[language=Java, caption=Operation innerhalb einer Klasse \cite{OOPL}, label={lst:Java-Operation}]
+class Point {
+private int x, y;
+	public int getX() { return x; }
+	public int getY() { return y; }
+	public void setXY(int x, int y) {
+		if (x >= 0 && y >= 0) {
+			this.x = x;
+			this.y = y;
+		}
+	}
+}
+\end{lstlisting}
+
+Im Listing \ref{lst:Java-Operation} wird zum Beispiel durch die Funktion \glqq setXY()\grqq ermöglicht, dass x und y gesetzt werden können. Es ist zu bemerken, dass verschiedene Sichtbarkeiten gesetzt werden. Dadurch, dass x und y auf \glqq private\grqq gesetzt sind, können sie also von außen nur durch die Funktion \glqq setXY()\grqq geändert werden.  
+Dies veranschaulicht auch das Konzept der Verkapselung \cite{OOPL} Seite 4.  
+
+Datenabstraktion in ihrer vollen Kapazität beschreibt also die Möglichkeit für Programmierer ihre eigenen Datentypen zu definieren, diese Typen können eine Heterogene Struktur haben und die Sicht auf diese kann eingeschränkt werden. Außerdem ist es möglich Operationen innerhalb dieser Datentypen zu haben.  
+
+In diesem Zusammenhang kann gesagt werden, dass Objekte also aus Attributen und Operationen, auch Funktionen oder Methoden genannt, bestehen und Instanzen von diesen Datentypen sind. Diese Datentypen werden im allgemeinen auch als Klassen bezeichnet.
+
 
 \section{Vererbung}\label{sec:Vererbung}
+%Referenz für Mario: Seite 30 OOPL
+
+
+\section{Polymorphismus}
 
 \section{Verwandte Konzepte}
 
 \section{Auswahl des Programmiersprache und Umgebung}
-
+In diesem Kapitel werden einige Programmiersprachen und geeignete Umgebungen betrachtet und verglichen. Aufgrund der Bekanntheit oder Vertrautheit mit diesen Programmiersprachen wurde das Augenmerk auf C++, C\#, Python und Java gerichtet.
+Weitere \gls{OOPL} mit denen man das Projekt realisieren könnte wären unter Anderen JavaScript oder Lua.
 
 \chapter{Realisierung}\label{sec:Realisierung}
 \section{Verwendete Plattformen}
