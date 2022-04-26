@@ -368,7 +368,7 @@ Die \gls{OOP} ist ein heutzutage weit verbreitetes Computerprogrammiermodell ode
 
 Einen tieferen Einblick in das Thema der \gls{OOP} soll der Abschnitt \ref{sec:Gundlagen} bieten, in dem die Basis für die \gls{OOP} näher erörtert wird.
 
-Thema dieses Studienprojektes ist es sich dieses Programmierparadigma zu nutze zu machen um ein Spiel zu entwickeln.\\
+Thema dieses Studienprojektes ist es sich dieses Programmierparadigma zunutze zu machen, um ein Spiel zu entwickeln.\\
 Der Titel des Spiels ist \glqq Schatzinsel\grqq, es handelt von drei Piraten die sich auf einer Insel befinden, auf der ebenfalls ein Schatz versteckt ist. Es ist ihnen unbekannt wo sich dieser Schatz befinden. Durch zufällige Bewegung über die Insel wollen sie versuchen diesen Schatz zu finden. Jeder der Piraten hat verschiedene Eigenschaften, wie zum Beispiel Geschwindigkeit.\\
 Sobald einer der Piraten den Schatz entdeckt, ruft er die anderen zu sich. Am Ende versammeln sie sich alle um den Schatz.
 
@@ -376,7 +376,7 @@ Dieser Umstand soll durch das Spiel modelliert und gegebenenfalls erweitert werd
 
 \chapter{Grundlagen}\label{sec:Gundlagen}
 \section{Objektorientierte Programmierung}
-\gls{OOPL} eignen sich durch die Konzentration auf die Objekte mit denen das Programm interagieren soll dazu, dass Software Wartbar und lesbar bleibt. Objekte und ihre Methoden können getrennt von einander erstellt und Programmiert werden. Diese Unterteilung in Einzelteile ermöglicht des weiteren die Wiederverwendbarkeit von Code, also dem Quelltext, entweder in dem die Klasse selbst wiederverwendet wird, oder eine andere Klasse von ihr erbt. Dazu mehr im Abschnitt \ref{sec:Vererbung}
+\gls{OOPL} eignen sich durch die Konzentration auf die Objekte mit denen das Programm interagieren soll dazu, dass Software Wartbar und lesbar bleibt. Objekte und ihre Methoden können getrennt voneinander erstellt und programmiert werden. Diese Unterteilung in Einzelteile ermöglicht des Weiteren die Wiederverwendbarkeit von Code, also dem Quelltext, entweder in dem die Klasse selbst wiederverwendet wird, oder eine andere Klasse von ihr erbt. Dazu mehr im Abschnitt \ref{sec:Vererbung}
 
 \gls{OOP} ist ein Programmierstil, der mittlerweile in Unternehmen, Industrie und akademischen Kreisen seinen Platz gefunden hat. Es wird ein natürlicheres und dadurch ein mächtigeres Entwurfsparadigma insofern erwartet, dass ein Programmierer produktiver ist, wenn das Anwendungsmodell näher am Problem modelliert werden kann, dass gelöst wird.\\
 Anders gesagt ist eine \gls{OOPL} mächtiger, weil es einem Programmierer erlaubt ein Problem zu lösen, dass die Struktur einer Welt nachbildet in welcher das Problem entstand. Vertrautheit mit solch einer Sprache eröffnet Wege zu einer klaren und natürlichen Lösung \cite{OOPL}.
@@ -399,7 +399,7 @@ AnzPassagiere: Integer;
 END;
 \end{lstlisting}
 
-Dieses Beispiel (Listing \ref{lst:record2}) definiert einen neuen Datentyp \textit{Auto}, in dem jeweils die Art des KFZ, das Gewischt und die Anzahl der Passagiere angegeben wird. Nun kann man den Typen \textit{Auto} nutzen um beliebig viele Daten-Entitäten zu erstellen.
+Dieses Beispiel (Listing \ref{lst:record2}) definiert einen neuen Datentyp \textit{Auto}, in dem jeweils die Art des KFZ, das Gewischt und die Anzahl der Passagiere angegeben wird. Nun kann man den Typen \textit{Auto} nutzen, um beliebig viele Daten-Entitäten zu erstellen.
 
 \begin{lstlisting}[language=Pascal, caption=Verbund Beispiel Instantiierung \cite{PascalVerbund}, label={lst:record2}]
 VAR a : Auto;
@@ -412,7 +412,7 @@ END;
 
 Manipulationen der Daten innerhalb des Verbunds werden extern vom Datentyp selbst betrachtet, die Syntax der Sprache indiziert somit nur eine Gruppierung von Daten.
 
-Verbunde in Pascal werden homogen genannt, wenn alle Daten innerhalb des Verbunds den selben Typ haben. Sie sind heterogen, wenn es verschiedene Typen, wie im Beispiel, gibt.
+Verbunde in Pascal werden homogen genannt, wenn alle Daten innerhalb des Verbunds denselben Typ haben. Sie sind heterogen, wenn es verschiedene Typen, wie im Beispiel, gibt.
 
 Pascal erlaubt zwar die Erstellung von heterogenen Verbunden, jedoch ist es nicht möglich in diesen Verbunden Operationen einzubauen. Anders als bei Pascal ist die bei Java zum Beispiel möglich.  
 
@@ -430,54 +430,172 @@ private int x, y;
 }
 \end{lstlisting}
 
-Im Listing \ref{lst:Java-Operation} wird zum Beispiel durch die Funktion \glqq setXY()\grqq ermöglicht, dass x und y gesetzt werden können. Es ist zu bemerken, dass verschiedene Sichtbarkeiten gesetzt werden. Dadurch, dass x und y auf \glqq private\grqq gesetzt sind, können sie also von außen nur durch die Funktion \glqq setXY()\grqq geändert werden.  
+Im Listing \ref{lst:Java-Operation} wird zum Beispiel durch die Funktion \glqq setXY()\grqq{}  ermöglicht, dass x und y gesetzt werden können. Es ist zu bemerken, dass verschiedene Sichtbarkeiten gesetzt werden. Dadurch, dass x und y auf \emph{private} gesetzt sind, können sie also von außen nur durch die Funktion \glqq setXY()\grqq{} geändert werden.  
 Dies veranschaulicht auch das Konzept der Verkapselung \cite{OOPL} Seite 4.  
 
 Datenabstraktion in ihrer vollen Kapazität beschreibt also die Möglichkeit für Programmierer ihre eigenen Datentypen zu definieren, diese Typen können eine Heterogene Struktur haben und die Sicht auf diese kann eingeschränkt werden. Außerdem ist es möglich Operationen innerhalb dieser Datentypen zu haben.  
 
-In diesem Zusammenhang kann gesagt werden, dass Objekte also aus Attributen und Operationen, auch Funktionen oder Methoden genannt, bestehen und Instanzen von diesen Datentypen sind. Diese Datentypen werden im allgemeinen auch als Klassen bezeichnet.
+In diesem Zusammenhang kann gesagt werden, dass Objekte also aus Attributen und Operationen, auch Funktionen oder Methoden genannt, bestehen und Instanzen von diesen Datentypen sind. Diese Datentypen werden im Allgemeinen auch als Klassen bezeichnet.
 
 
 \section{Vererbung}\label{sec:Vererbung}
-%Referenz für Mario: Seite 30 OOPL
+Die Beziehung zwischen Typen in spielt eine wichtige Rolle in den \gls{OOPL}, so ist die Vergleichbarkeit von Typen wichtig, um Objekte zu vergleichen.  
+Diese Beziehungen werden durch Vererbung erweitert und bereichert. Es stellt sich ein System aus Vererbungs- und Subtypenbeziehungen dar, diese Tragen zur Komplexität einer Sprache bei. Dabei spielen verschiedene Begriffe zentrale Rollen.  
+Zum Beispiel wird gesagt, dass Klasse B von Klasse A \emph{erbt} oder \emph{abgeleitet} ist, wenn Objekte der Klasse B mindestens dieselben Attribute und Verhaltensweisen wie Objekte der Klasse A haben. Die Objekte der Klasse B können auch mit eigenen Attributen und Methoden erweitert werden.  
+B \emph{erbt} diese Attribute von A. Dann ist A die \emph{Basisklasse}, manchmal auch als \emph{Elternklasse} bezeichnet, von der B abgeleitet wird.  
+Im englischen werden oft auch die Begriffe \emph{Superklass} (Oberklasse) und \emph{Subclass} (Unterklasse) verwendet.  
+Subtypenbeziehungen gestalten sich ähnlich zur Vererbung. Damit eine Subtypenbeziehung besteht, müssen Objekte des Typs B auch als Objekte des Typs A gelten. Nicht nur die Attribute des Objekts vom Typ B stimmen mit denen vom Typ A überein, auch die Zugriffsrechte und Sichtbarkeit auf die verschiedenen Attribute müssen übereinstimmen. Das heißt, dass alle Attribute und Methoden, die in Typ A zur Verfügung stehen, auch in Typ B zur Verfügung stehen.  
+Wenn diese Bedingung erfüllt ist, dann können auch immer Objekte vom Typ B als Argumente an Parameter des Typen A gegeben werden. Im englischen wird gesagt B ist ein \emph{subtype} (Untertyp) von A beziehungsweise A ist ein \emph{supertype} (Obertyp) von Typ B. Im Allgemeinen ist es so, dass es immer, wenn die Funktionalität der Vererbung gegeben ist, auch immer die Funktionalität für Subtypen in Programmiersprachen existiert.  
+  
+Ein Datentyp, der Vererbung eingearbeitet hat, wird auch als Klasse bezeichnet (s.O.).
 
+\begin{lstlisting}[language=Java, caption=Erweiterung der Point Klasse aus Listing \ref{lst:Java-Operation} \cite{OOPL}, label={lst:Vererbung}]
+class Disk extends Point {
+	private double radius;
+	private Color color;
+	public double getRadius() { return radius; }
+	public void setRadius(double radius) {
+		if (radius > 0) this.radius = radius;
+		}
+	public Color getColor() { return color; }
+	public void setColor(Color color) { this.color = color; }
+}
+\end{lstlisting}
+
+Im Listing \ref{lst:Vererbung} wird die Klasse \glqq Point\grqq{}  aus \ref{lst:Java-Operation} erweitert. Da eine Scheibe einen Punkt als Basis hat, kann die Klasse auch so erweitert werden, dass man einen Radius und z.B. eine Farbe hinzufügt. Die Vererbung selber ändert nichts an der Verwendung dieser neuen Klasse. Sie muss immer noch Instantiiert werden und über Methoden ihre Parameter gesetzt werden, dafür dienen die Methoden setRadius(), SetColor() und die geerbte Methode setXY(). Es ist also Beispielweise möglich mit den folgenden Befehlen ein entsprechendes Objekt zu erstellen siehe Listing \ref{lst:Instantiierung}.
+
+\begin{lstlisting}[language=Java, caption=Instantiierung der Klasse Disk \cite{OOPL}, label={lst:Instantiierung}]
+Disk d = new Disk();
+d.setXY(100,210);
+d.setRadius(25.7);
+d.setColor(Color.red);
+\end{lstlisting}
+
+Es ist zu bemerken, dass die Methoden über das Objekt aufgerufen werden. Es gibt die Möglichkeit auch Methoden auszuführen, die über Klassen ausgeführt werden. Solche Methoden nennt man auch statische Methoden, sie werden über das Schlüsselwort \emph{static} im Quelltext der Sprachen Java, C++ und C\# identifiziert.
 
 \section{Polymorphismus}
+%Seite 32
+Subklassen sind oft spezialisierte klassen
+daher notwendig , dass ein spezialisiertes Objekt ihre Methoden anders ausführt
+wir benötigen die Möglichkeit Methoden zu überschreiben \emph{override}
 
-\section{Verwandte Konzepte}
+Subklassen sind oft spezialisierte Klassen, die von einer Oberklasse erben. Oft ist es zu erwarten, dass eine solche spezialisierte Klasse sich anders verhält, wenn man eine Methode der Oberklasse aufruft. Man kann zur Veranschaulichung eine Klasse betrachten, die ein beliebiges Tier darstellen soll siehe Listing \ref{lst:Tier}.
+
+\begin{lstlisting}[language=Java, caption=Klasse Tier, label={lst:Tier}]
+class Tier
+{
+    private String name;
+    private short alter;
+ 
+    public void gibLaut()
+    {
+        System.out.println("Geraeusche eines allgemeinen Tiers");
+    }
+
+}
+\end{lstlisting}
+
+Wenn man nun Unterklassen von der Klasse Tier ableitet, könnte man erwarten, dass die Methode \emph{gibLaut()}, je nachdem, um was für ein Tier es sich handelt, eine andere Ausgabe verursacht.  
+Es ist also notwendig eine Möglichkeit zu haben die Verhaltensweisen und Methoden von Oberklassen zu überschreiben. Diese veränderbarkeit der Implementation von Funktionen nennt man auch Polymorphismus. 
+So kann man in der Programmiersprache Java mit der Deklaration \emph{\@Override} eine Funktion überschreiben siehe \ref{lst:Katze}.
+
+\begin{lstlisting}[language=Java, caption=Klasse Katze, label={lst:Katze}]
+class Katze extends Tier
+{
+    @Override
+    public void gibLaut()
+    {
+        System.out.println("Miau");
+    }
+}
+\end{lstlisting}
+
+Je nach Sprache ist diese Funktionalität anders implementiert. In der Sprache C++ werden Funktionen, die überschreibbar sein sollen mit dem Schlüsselwort \emph{virtual} gekennzeichnet siehe \ref{lst:TierC++}.
+
+\begin{lstlisting}[language=C++, caption=Tier und Katzen Beispiel in C++, label={lst:TierC++}]
+class Tier {
+	public:
+	virtual char * gibLaut() { return "Geraeusche eines allgemeinen Tiers"; }
+	};
+	
+class Katze : public Tier {
+	public:
+	char * gibLaut() { return "Miau"; }
+};
+\end{lstlisting}
+
+\section{Überladen}
+Überladen bezieht sich auf Funktionen und Operatoren und bedeutet, dass diese, unter der Verwendung des gleichen Namens, in Abhängigkeit der Typen der übergebenen Parameter verschieden ausgeführt werden. Betrachtet man zum Beispiel die Addition als Operator, so wird bei der Berechnung der Summe von zwei Zahlen je nach Typ der Zahlen die Operation anders ausgeführt.  
+Wenn man Zahlen von verschiedenen Typen addieren möchte, dann wird oft impliziert eine Umwandlung der Typen vollzogen. Zum Beispiel wenn eine ganze Zahl mit einer Fließkommazahl addiert wird, dann wird die ganze Zahl in eine Fließkommazahl umgewandelt, bevor sie addiert werden.  
+Der + Operator für die Addition wird in einigen Sprachen auch so überladen, dass mit ihm Text verkettet werden kann.  
+  
+Es ist Programmierern somit auch möglich selber Operatoren oder Funktionen zu überladen.
+
+\chapter{Umgebungen}\label{sec:Umgebungen}
+\section{Java Swing}
+Java Swing ist eine \gls{GUI} Bibliothek für Java. Es gehört zu den Java Foundation Classes, eine Sammlung von Bibliotheken für dir Programmierung von graphischen Benutzerschnittstellen. Andere Bibliotheken in dieser Sammlung sind zum Beispiel Java 2d, Java Accessibility API, Drag-and-Drop-API und das Abstract Window Toolkit (AWT) \cite{JFC}. Swing baut auf AWT auf und ist mit den anderen APIs verwoben.  
+Es gibt auch Konkurrenten zu Swing, z.B. das für Eclipse entwickelte SWT. Auf dieses wird aber nicht eingegangen, da Swing auch mit anderen Entwicklerwerkzeugen und -umgebungen Kompatibel ist.  
+Swing ist, im Gegensatz zu AWT, Plattformunabhängig. Außerdem ist es modular und objektorientiert aufgebaut. Die Plattformunabhängigkeit wird dadurch gewährleistet, dass alle Swing-Komponenten direkt von Java gerendert werden. Nachteil davon ist, dass Swing Anwendungen nicht wie Anwendungen aussehen, die nativ auf dem darunterliegenden Betriebssystem entwickelt wurden.  
+Es gibt so genannte \glqq Look-and-Feels\grqq{}, die das Aussehen und Verhalten modifizieren.
+
+\section{Unreal Engine}
+\section{Unity Engine}
+
+
+\chapter{Verwendete Werkzeuge}
+\section{Git und Github}
+\section{Eclipse}
+\section{Unreal Engine Editor}
+\section{Unity Engine Editor}
+
+
 
 \chapter{Realisierung}\label{sec:Realisierung}
-\section{Betrachtete Umgebungen}
-\subsection{Java Swing}
-\subsection{PyGame}
-\subsection{Unreal Enginge}
-\subsection{Unity Enginge}
-
-\subsection{Auswahl der Umgebung}
-
-\section{Verwendete Werkzeuge}
-\subsection{Git und Github}
-\subsection{Eclipse}
-\subsection{Unreal Engine Editor}
-\subsection{Unity Engine Editor}
-
 \section{Zusammenfassung der Anforderungen}
+Wie in \ref{sec:einleitung} Beschrieben sind für dieses Projekt einige Anforderungen gegeben, die Umgesetzt werden sollen. Für die Betrachtung der Entwicklung dieses Projekts in den verschiedenen Umgebungen werden also folgende Anforderungen festgelegt.
+Diese Funktionen werden nach den \glqq MASTeR - Die SOPHIST-Templates für Requirements\grqq{} von Sophist formuliert\cite{sophist}.
 
-\section{Anforderung 1}
-\subsection{Ansatz}
-\subsection{Umsetzung}
+\textbf{Anforderungen}
+\textbf{Spielstart}
+\begin{itemize}\vspace{-1em}
+\setlength{\itemsep}{-1em}
+	\item Wenn das Programm gestartet wird, muss das Spiel 1 Spielfeld, 1 Schatz und 3 Piraten Objekte erstellen.
+	\item Wenn die Piraten erstellt werden, muss das Spiel ihnen verschiedene Geschwindigkeiten zuordnen.
+	\item Wenn das Programm gestartet wird, muss das Spiel die Graphische Oberfläche darstellen.
+	\item Wenn das Programm aktualisiert muss das Spiel die Piraten \textbf{zufällig} über das Spielfeld bewegen.
+\end{itemize}
 
-\section{Anforderung 2}
-\subsection{Ansatz}
-\subsection{Umsetzung}
+\textbf{Während des Spiels}
+\begin{itemize}\vspace{-1em}
+\setlength{\itemsep}{-1em}
+	\item Wenn sich ein Pirat bewegt, sollte das Spiel ein Feld wählen, dass er in den letzten 5 Positionen nicht betreten hat.
+	\item Wenn das Spiel gestartet ist, muss das Spiel eine Option für die Sichtbarkeit des Schatzes anbieten.
+	\item Wenn ein Pirat in der Nähe des Schatzes ist, muss das Spiel den Schatz sichtbar machen, wenn er unsichtbar ist.
+	\item Wenn ein Pirat in der Nähe des Schatzes ist, muss das Spiel ihn Richtung Schatz bewegen. (Nicht mehr zufällig.)
+	\item Wenn ein Pirat in der Nähe des Schatzes ist, muss das Spiel die anderen Piraten in Richtung des Schatzes bewegen.
+\end{itemize}
 
-\section{Anforderung 3}
-\subsection{Ansatz}
-\subsection{Umsetzung}
+\section{Umsetzung in Java}
 
-\section{Anforderung 4}
-\subsection{Ansatz}
-\subsection{Umsetzung}
+\section{Umsetzung in Unreal Engine}
+
+\section{Umsetzung in Unity Engine}
+
+%\section{Anforderung 1}
+%\subsection{Ansatz}
+%\subsection{Umsetzung}
+%
+%\section{Anforderung 2}
+%\subsection{Ansatz}
+%\subsection{Umsetzung}
+%
+%\section{Anforderung 3}
+%\subsection{Ansatz}
+%\subsection{Umsetzung}
+%
+%\section{Anforderung 4}
+%\subsection{Ansatz}
+%\subsection{Umsetzung}
 
 \chapter{Ergebnisse}
 
