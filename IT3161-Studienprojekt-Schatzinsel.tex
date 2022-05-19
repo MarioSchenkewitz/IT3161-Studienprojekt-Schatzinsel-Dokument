@@ -475,7 +475,7 @@ Es ist zu bemerken, dass die Methoden über das Objekt aufgerufen werden. Es gib
 
 \section{Polymorphismus}
 %Seite 32
-Subklassen sind oft spezialisierte klassen
+Subklassen sind oft spezialisierte Klassen
 daher notwendig , dass ein spezialisiertes Objekt ihre Methoden anders ausführt
 wir benötigen die Möglichkeit Methoden zu überschreiben \emph{override}
 
@@ -578,7 +578,59 @@ Diese Funktionen werden nach den \glqq MASTeR - Die SOPHIST-Templates für Requi
 	\item Wenn ein Pirat in der Nähe des Schatzes ist, muss das Spiel die anderen Piraten in Richtung des Schatzes bewegen.
 \end{itemize}
 
-\section{Umsetzung in Java}
+\section{Umsetzung in Java}\label{sec:Umsetzung_Java}
+\emph{Notiz: Der Quelltext der Umsetzung in Java ist auf \url{https://github.com/MarioSchenkewitz/IT3161-Studienprojekt-Schatzinsel-Java/} zu finden.}\\
+
+Um das Spiel zu entwerfen werden verschiedene Klassen benötigt. Zum einen die Klassen, die die Objekte im Spiel darstellen und zum anderen Klassen um das Spiel selber zu verwalten siehe Abbildung \ref{fig:UML_Klassendiagramm_Java}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.4]{bilder/UML_Klassendiagramm_Java.png}
+  \label{fig:UML_Klassendiagramm_Java}       %fig:ID
+  \caption[UML-Klassendiagramm für die Umsetzung in Java]{UML-Klassendiagramm für die Umsetzung in Java}    %Bildunterschrift
+\end{figure}
+
+Die zentrale Klasse des Spiels ist die Klasse GamePanel, sie ist das Fenster in dem sich alles abspielt. In der Klasse Main wird ein Fenster erzeugt, in dem sich das GamePanel befindet. In dieser Klasse werden auch alle Einstellungen festgelegt, die Frames die pro Sekunde dargestellt und berechnet werden sollen, Fenstergröße, Skalierung, wie viele Piraten vorhanden sein sollen und weitere Einstellungen.  
+Für die Entitäten im Spiel selber gibt es eine Überklasse, Entity, von der die anderen Klassen, : Pirat und Schatz abgeleitet werden.  
+Zur Verwaltung des Spiels sind noch weitere Klassen notwendig.
+
+\textbf{Verwaltungsklassen}
+\begin{itemize}\vspace{-1em}
+\setlength{\itemsep}{-1em}
+	\item GamePanel: Wie oben erwähnt bestimmt sie das Spielfenster und die Einstellungen.
+	\item KeyHandler: Implementiert den KeyListener aus der AWT-Bibliothek, der Tastatureingaben verarbeitet.
+	\item TileManager und Tiles: Tiles sind die Spielfeldkacheln, sie stellen die Insel dar und verwalten das Laden der Kacheln aus den verschiedenen Bilddateien und der Kartendatei.
+	\item UI (User Interface): Sie ist für den Text auf dem Bildschirm zuständig,
+	\item Sound: Nutzt die Java Sound Bibliotheken um Tondateien abzuspielen. In unserem Fall die Fanfare, wenn der Schatz gefunden wird.
+	\item CollisionChecker: Überprüft ob die Kacheln, auf die sich eine Entität zubewegt Kollision auslöst.
+\end{itemize}
+
+Moderne Prozessoren sind sehr schnell und können die Aktualisierung der Spielzustände und der Darstellung sehr schnell berechnen. Um das Spiel verfolgen zu können muss die Rate mit der das Spiel dargestellt wird begrenzt werden, siehe Listing \ref{lst:update}.
+
+\begin{lstlisting}[language=Java, caption=Beschränkung der Aktualisierungen, label={lst:update}]
+public void run() {
+	double drawInterval = 1000000000/FPS;
+	double delta = 0;
+	long lastTime = System.nanoTime();
+	long currentTime;
+	
+	while(gameThread!= null) {
+		currentTime = System.nanoTime();
+		delta += (currentTime - lastTime) / drawInterval;
+		lastTime = currentTime;
+		
+		if(delta >=1) {
+			update();
+			repaint();
+			delta--;
+		}
+	}
+}
+\end{lstlisting}
+
+In der Funktionen update() befindet sich die Logik des Spiels, dessen Auswirkungen im Anschluss mit der Funktion repaint() erneut gezeichnet werden.  
+Die Details zu der Logik und allen weiteren Klassen sind im GitHub Repository zu sehen, siehe Notiz am Anfang des Abschnitts \ref{sec:Umsetzung_Java}.
+
 
 \section{Umsetzung in Unreal Engine}
 
