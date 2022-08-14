@@ -330,13 +330,18 @@ Hochschule für Wirtschaft und Recht Berlin}
 %%%%%%%%%%% Abstract
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
-
+Development of games isn't for entertainment Purposes only nowadays. It is possible do model different environments and worlds through them and to use those for simulations or predictions.
+In light of this it is evaluated how well suited older and modern development Environments are in realizing these games.
+The scenario of a Treasure Island serves as an example. Pirates on this island move in random directions and let each other know when the treasure is located.  
+In this Paper Java, Unreal Engine and Unity Engine are considered for the making of this game.
 
 \pagenumbering{Roman} % römische Seitenzahlen
 
 \chapter*{Kurzfassung}
 \addcontentsline{toc}{chapter}{Kurzfassung}
-
+Die Entwicklung von Spielen ist Heutzutage nicht nur für Unterhaltungszwecke interessant. Es ist möglich durch sie auch verschiedene Umgebungen und Welten modellieren und für Simulationen oder vorhersagen verwenden. Vor diesem Hintergrund wird untersucht, wie ältere und moderne Entwicklungsumgebungen sich eignen in der Umsetzung von Spielen.  
+Als Beispiel dient das Szenario einer Schatzinsel, auf der Piraten einen Schatz suchen. Sie Bewegen sich in zufällige Richtungen und lassen sich gegenseitig wissen, wenn der Schatz gefunden wurde.
+Betrachtet werden in dieser Arbeit die Umsetzung in Java, Unreal Engine und Unity Engine.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Inhaltsverzeichnis, Tabellen, Abbildungen, etc.
@@ -367,7 +372,7 @@ Hochschule für Wirtschaft und Recht Berlin}
 \chapter{Einleitung}\label{sec:einleitung}
 Die \gls{OOP} ist ein heutzutage weit verbreitetes Computerprogrammiermodell oder Programmierparadigma. In der \gls{OOP} werden Anwendungen um so genannte Objekte und deren Daten herum strukturiert und nicht um Funktionen oder Logik. So fokussiert sich die \gls{OOP} auf Objekte mit denen eine Anwendung interagiert, diese Objekte können als Datenfeld mit Attributen und eigenem Verhalten angesehen werden.
 
-Einen tieferen Einblick in das Thema der \gls{OOP} soll der Abschnitt \ref{sec:Gundlagen} bieten, in dem die Basis für die \gls{OOP} näher erörtert wird.
+Einen tieferen Einblick in das Thema der \gls{OOP} soll der Abschnitt \ref{sec:Grundlagen} bieten, in dem die Basis für die \gls{OOP} näher erörtert wird.
 
 Thema dieses Studienprojektes ist es sich dieses Programmierparadigma zunutze zu machen, um ein Spiel zu entwickeln.\\
 Der Titel des Spiels ist \glqq Schatzinsel\grqq, es handelt von drei Piraten die sich auf einer Insel befinden, auf der ebenfalls ein Schatz versteckt ist. Es ist ihnen unbekannt wo sich dieser Schatz befinden. Durch zufällige Bewegung über die Insel wollen sie versuchen diesen Schatz zu finden. Jeder der Piraten hat verschiedene Eigenschaften, wie zum Beispiel Geschwindigkeit.\\
@@ -375,7 +380,7 @@ Sobald einer der Piraten den Schatz entdeckt, ruft er die anderen zu sich. Am En
 
 Dieser Umstand soll durch das Spiel modelliert und gegebenenfalls erweitert werden.
 
-\chapter{Grundlagen}\label{sec:Gundlagen}
+\chapter{Grundlagen}\label{sec:Grundlagen}
 \section{Objektorientierte Programmierung}
 \gls{OOPL} eignen sich durch die Konzentration auf die Objekte mit denen das Programm interagieren soll dazu, dass Software Wartbar und lesbar bleibt. Objekte und ihre Methoden können getrennt voneinander erstellt und programmiert werden. Diese Unterteilung in Einzelteile ermöglicht des Weiteren die Wiederverwendbarkeit von Code, also dem Quelltext, entweder in dem die Klasse selbst wiederverwendet wird, oder eine andere Klasse von ihr erbt. Dazu mehr im Abschnitt \ref{sec:Vererbung}
 
@@ -542,7 +547,7 @@ Es gibt so genannte \glqq Look-and-Feels\grqq{}, die das Aussehen und Verhalten 
 \section{Unreal Engine}
 
 Unreal Engine ist eine der am weitesten verbreiteten und fortschrittlichen 3D Entwicklungsumgebungen. Sie wird unter anderem für das Aufnehmen von Animationsfilmen, Präsentationen von Prototypen und zur Erstellung von Computerspielen verwendet.
-Für das Programmieren kann man entweder Blueprints, Unreal`s eigene visuelle Programmiersprache oder C++ verwenden. Das fertige Projekt wird am Ende für das Zielsystem gepackt. Unreal unterstützt hierbei alle wichtigen Plattformen wie Windows, Mac, Linux und Android.
+Für das Programmieren können entweder Blueprints, Unreal`s eigene visuelle Programmiersprache oder C++ verwendet werden. Ein fertiges Projekt wird am Ende für das entsprechende Zielsystem ausgeliefert. Unreal unterstützt hierbei alle verbreiteten Plattformen wie Windows, Mac, Linux und Android.
 
 
 \section{Unity Engine}
@@ -556,8 +561,8 @@ Es wird heutzutage von der Eclipse Foundation entwickelt. Beliebte alternativen 
 
 \section{Unreal Engine Editor}
 
-Der Unreal Engine Editor ist die Entwicklungsumgebung für Unreal Engine Projekte. Im Editor sind viele Werkzeuge enthalten, mit denen man verschiedenste Datentypen, die bei der Entwicklung verwendet werden können, bearbeiten kann. 
-Die Auswahl hierbei ist so groß, dass man ganze Projekte entwickeln kann, ohne ein anderes Programm starten zu müssen.
+Der Unreal Engine Editor ist die Entwicklungsumgebung für Unreal Engine Projekte. Im Editor sind viele Werkzeuge enthalten, mit denen verschiedenste Datentypen, die bei der Entwicklung verwendet werden können, bearbeiten werden können. 
+Die Auswahl hierbei ist so groß, dass ganze Projekte entwickeln werden können, ohne ein anderes Programm starten zu müssen.
 
 
 \section{Unity Engine Editor}
@@ -602,7 +607,7 @@ Um das Spiel zu entwerfen werden verschiedene Klassen benötigt. Zum einen die K
 \end{figure}
 
 Die zentrale Klasse des Spiels ist die Klasse GamePanel, sie ist das Fenster in dem sich alles abspielt. In der Klasse Main wird ein Fenster erzeugt, in dem sich das GamePanel befindet. In dieser Klasse werden auch alle Einstellungen festgelegt, die Frames die pro Sekunde dargestellt und berechnet werden sollen, Fenstergröße, Skalierung, wie viele Piraten vorhanden sein sollen und weitere Einstellungen.  
-Für die Entitäten im Spiel selber gibt es eine Überklasse, Entity, von der die anderen Klassen, : Pirat und Schatz abgeleitet werden.  
+Für die Entitäten im Spiel selber gibt es eine Überklasse, Entity, von der die anderen Klassen Pirat und Schatz abgeleitet werden.  
 Zur Verwaltung des Spiels sind noch weitere Klassen notwendig.
 
 \textbf{Verwaltungsklassen}
@@ -615,6 +620,8 @@ Zur Verwaltung des Spiels sind noch weitere Klassen notwendig.
 	\item Sound: Nutzt die Java Sound Bibliotheken um Tondateien abzuspielen. In unserem Fall die Fanfare, wenn der Schatz gefunden wird.
 	\item CollisionChecker: Überprüft ob die Kacheln, auf die sich eine Entität zubewegt Kollision auslöst.
 \end{itemize}
+
+Es werden also alle Verwaltungsklassen in entsprechenden Objekten instanziiert, die Funktion zum starten des Threads definiert. Hier wird auch der Status des Spiels festgelegt, um pausieren zu erlauben.
 
 Moderne Prozessoren sind sehr schnell und können die Aktualisierung der Spielzustände und der Darstellung sehr schnell berechnen. Um das Spiel verfolgen zu können muss die Rate mit der das Spiel dargestellt wird begrenzt werden, siehe Listing \ref{lst:update}.
 
@@ -642,6 +649,14 @@ public void run() {
 In der Funktionen update() befindet sich die Logik des Spiels, dessen Auswirkungen im Anschluss mit der Funktion repaint() erneut gezeichnet werden.  
 Die Details zu der Logik und allen weiteren Klassen sind im GitHub Repository zu sehen, siehe Notiz am Anfang des Abschnitts \ref{sec:Umsetzung_Java}.
 
+Die Funktion update() überprüft zuerst in welchem Zustand sich das Spiel befindet. Mit der selben Logik wie in Listing \ref{lst:update} wird auch in der update() Funktion sicher gestellt, dass die Piraten nur in bestimmten Zeitabständen ihre Richtung wechseln, dies geschieht in der update() Funktion der Klasse Pirat.
+Wenn der Schatz jedoch gefunden wurde, bewegen sie sich kontinuierlich auf den Schatz zu.
+Der Rest der Logik in dieser Funktion überprüft den Abstand jedes Piraten zum Schatz und setzt den Status der Piraten dem entsprechend, so dass sie sich nicht mehr bewegen, wenn sie am Schatz sind bzw. dass das Spiel zu Ende ist, wenn alle am Schatz sind und eine kleine Fanfare abgespielt wird.
+  
+  
+Die repaint() Funktion ist eine Funktion der AWT-Bibliothek und sorgt dafür, dass die paintComponent() Funktion aufgerufen wird. Diese zeichnet abhängig vom Spielzustand die Entsprechenden Darstellungen auf den Bildschirm. Dafür wird Hauptsächlich die Verwaltungsklasse UI in Anspruch genommen.
+
+
 
 \section{Umsetzung in Unreal Engine}
 \emph{Notiz: Der Quelltext der Umsetzung in Unreal ist auf \url{https://github.com/TheidenHD/Studienprojekt/} zu finden. \\
@@ -661,7 +676,7 @@ Für die Künstliche werden 5  verschiedene Objekte verwendet. Vier davon sind f
 Blackboard, welches Variablen für den Entscheidungsbaum bereithält. Der Schatz hat keine besonderen Bestandteile und wird lediglich im Controller als Ziel für die Sensorik definiert.
 
 \subsection{Sensorik}
-Die Sensorik kann Ziele auf zwei unterschiedliche Methoden wahrnehmen, visuell und auditiv. Da wir hier nicht mit Geräuschen arbeiten, können wir den auditiven Teil einfach ignorieren. Beim visuellen teil wird ein Kegel vom Kopf des Karakters aufgespannt und für alle Objekte der Klasse Pawn und deren unterklassen die sich in diesem Kegel befinden und nicht durch ein anderes undurchsichtiges Objekt verdeckt werden, wird ein Event ausgeworfen, in dem man nun überprüfen muß ob dieses Objekt das Gesuchte ist.
+Die Sensorik kann Ziele auf zwei unterschiedliche Methoden wahrnehmen, visuell und auditiv. Da wir hier nicht mit Geräuschen arbeiten, können wir den auditiven Teil einfach ignorieren. Beim visuellen teil wird ein Kegel vom Kopf des Charakters aufgespannt und für alle Objekte der Klasse Pawn und deren Unterklassen die sich in diesem Kegel befinden und nicht durch ein anderes undurchsichtiges Objekt verdeckt werden, wird ein Event ausgeworfen, in dem man nun überprüfen muss ob dieses Objekt das Gesuchte ist.
 
 \subsection{Bewegung}
 Damit sich die Piraten bewegen können, benötigen wir zwei Komponenten, das Level in dem der Pirat sich bewegt und das Bewegungsmodul im Piraten selbst. Damit er sich durch das Level bewegen kann, benötigt er mindestens eine Fläche und eine Definition, welche der Flächen begehbar sind. Diese Definition ist das \gls{NavMesh}, welches dynamisch durch das NavMeshBoundsVolume im laufenden Betrieb erstellt wird. Wenn sich der Pirat nun im \gls{NavMesh} befindet und einen Punkt bekommt, der sich ebenfalls im \gls{NavMesh} befindet, wird er sich auf den kürzesten Weg  zu diesem Punkt bewegen.
