@@ -209,7 +209,8 @@ numbersep=5pt
 
 %Glossar-Befehle anschalten
 %\makeglossaries
-\makenoidxglossaries
+\loadglsentries{glossar.tex}
+\makenoidxglossaries 
 
 % sorgt dafür, dass bei Leerzeile die Einrückung verhindert und stattdessen eine Leerzeile eingefügt wird % erspart bigskips und erhöht die Lesbarkeit im LaTeX-Text 
 \KOMAoptions{parskip=full*}
@@ -219,7 +220,7 @@ numbersep=5pt
 
 
 
-\loadglsentries{glossar.tex}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% Textbausteine
@@ -249,7 +250,7 @@ numbersep=5pt
 %%%%%%%%%%%% Jahrgang
 \newcommand{\jahrgang}{2020}
 %%%%%%%%%%%% Matrikelnummer
-\newcommand{\MatrEins}{}
+\newcommand{\MatrEins}{612678}
 \newcommand{\MatrZwei}{685593}
 \newcommand{\MatrDrei}{}
 %%%%%%%%%%%% Modul
@@ -539,6 +540,11 @@ Swing ist, im Gegensatz zu AWT, Plattformunabhängig. Außerdem ist es modular u
 Es gibt so genannte \glqq Look-and-Feels\grqq{}, die das Aussehen und Verhalten modifizieren.
 
 \section{Unreal Engine}
+
+Unreal Engine ist eine der am weitesten verbreiteten und fortschrittlichen 3D Entwicklungsumgebungen. Sie wird unter anderem für das Aufnehmen von Animationsfilmen, Präsentationen von Prototypen und zur Erstellung von Computerspielen verwendet.
+Für das Programmieren kann man entweder Blueprints, Unreal`s eigene visuelle Programmiersprache oder C++ verwenden. Das fertige Projekt wird am Ende für das Zielsystem gepackt. Unreal unterstützt hierbei alle wichtigen Plattformen wie Windows, Mac, Linux und Android.
+
+
 \section{Unity Engine}
 
 
@@ -549,6 +555,11 @@ Eclipse ist eine integrierte Entwicklungsumgebung die hauptsächlich zum program
 Es wird heutzutage von der Eclipse Foundation entwickelt. Beliebte alternativen zu Eclipse für die Entwicklung von Programmen in Java sind unter anderen zum Beispiel IntelliJ IDEA von JetBrains und NetBeans von Apachi.
 
 \section{Unreal Engine Editor}
+
+Der Unreal Engine Editor ist die Entwicklungsumgebung für Unreal Engine Projekte. Im Editor sind viele Werkzeuge enthalten, mit denen man verschiedenste Datentypen, die bei der Entwicklung verwendet werden können, bearbeiten kann. 
+Die Auswahl hierbei ist so groß, dass man ganze Projekte entwickeln kann, ohne ein anderes Programm starten zu müssen.
+
+
 \section{Unity Engine Editor}
 
 
@@ -633,6 +644,31 @@ Die Details zu der Logik und allen weiteren Klassen sind im GitHub Repository zu
 
 
 \section{Umsetzung in Unreal Engine}
+\emph{Notiz: Der Quelltext der Umsetzung in Unreal ist auf \url{https://github.com/TheidenHD/Studienprojekt/} zu finden. \\
+Das fertige Projekt ist auf \url{https://github.com/TheidenHD/Studienprojekt/releases/tag/1.0/} zu finden.}\\
+
+Aufgrund der Komplexität von Unreal werden einige Standard-Klassen benötigt, die keinen großen Einfluss auf das Endprodukt haben. Beispiele sind hier der GameMode, welcher unter anderem zur Definition von Standard Klassen und die GameInstance, welche hier zum Übermitteln von Variablen zwischen bestimmten Abschnitten im Projektablauf.
+
+\subsection{UI}
+Die Benutzeroberflächen werden aus einzelnen Bausteinen zusammengesetzt, die am Ende über das laufende Projekt gerendert werden. Wir verwenden dies im Hauptmenü, wo wir ein laufendes Level haben, damit wir einen animierten Hintergrund haben und im Pausemenü, wo wir die Ausführung des Level pausieren, die Bewegungskontrolle deaktivieren und einen Unschärfe-Effekt über den Hintergrund legen. Das Klicken der Knöpfe erzeugt Events, die wir behandeln müssen, um den erwünschten Effekt zu erhalten.
+
+
+\subsection{Level}
+Das Projekt hat zwei Level, das Erste wird als Hintergrund für das Hauptmenü benutzt. In ihm befinden sich lediglich einige animierte Objekt und eine statische Kamera. Das Zweite ist das Spielfeld, in dem die Piraten nach dem Schatz suchen. Das Spielfeld ist statisch designt, das heißt, die Piraten starten immer an der gleichen Stell und der Schatz wird beim Start an einer von 6 vordefinierten Positionen zufällig platziert. Der Schatz kann hierbei unsichtbar sein, dies ändert allerdings nur die Sichtbarkeit für den Spieler und hat keinen Einfluss auf die Erkennbarkeit durch die Piraten und auf die Kollision. Die Piraten haben unterschiedliche Bewegungsgeschwindigkeiten, Blickwinkel und Sichtweiten. Diese werden in jeder Instanz durch Variablen definiert und nach dem Platzieren selbständig eingelesen und in den jeweiligen Komponenten hineingeschrieben. Außerdem verwendet eine Instanz das weibliche Modell und alle anderen das standard-männliche Modell.
+
+\subsection{Künstliche Intelligenz}
+Für die Künstliche werden 5  verschiedene Objekte verwendet. Vier davon sind für den Piraten und das fünfte ist der Schatz, den die Piraten suchen. Als erstes haben wir den Charakter, welcher alle physischen Komponenten beinhaltet, wie das Bewegungsmodul, die Sensorik und das Modell, welches für den Spieler sichtbar ist. Außerdem ist er für die Animation des Modells zuständig. Als zweites haben wir den Controller, welcher als Gehirn für den Piraten fungiert und alle Entscheidungen trifft. Als drittens haben wir einen Entscheidungsbaum, welcher ein Flowchart ist, für alle Entscheidungen des Controllers.  Und zu guter letzt haben wir noch ein 
+Blackboard, welches Variablen für den Entscheidungsbaum bereithält. Der Schatz hat keine besonderen Bestandteile und wird lediglich im Controller als Ziel für die Sensorik definiert.
+
+\subsection{Sensorik}
+Die Sensorik kann Ziele auf zwei unterschiedliche Methoden wahrnehmen, visuell und auditiv. Da wir hier nicht mit Geräuschen arbeiten, können wir den auditiven Teil einfach ignorieren. Beim visuellen teil wird ein Kegel vom Kopf des Karakters aufgespannt und für alle Objekte der Klasse Pawn und deren unterklassen die sich in diesem Kegel befinden und nicht durch ein anderes undurchsichtiges Objekt verdeckt werden, wird ein Event ausgeworfen, in dem man nun überprüfen muß ob dieses Objekt das Gesuchte ist.
+
+\subsection{Bewegung}
+Damit sich die Piraten bewegen können, benötigen wir zwei Komponenten, das Level in dem der Pirat sich bewegt und das Bewegungsmodul im Piraten selbst. Damit er sich durch das Level bewegen kann, benötigt er mindestens eine Fläche und eine Definition, welche der Flächen begehbar sind. Diese Definition ist das \gls{NavMesh}, welches dynamisch durch das NavMeshBoundsVolume im laufenden Betrieb erstellt wird. Wenn sich der Pirat nun im \gls{NavMesh} befindet und einen Punkt bekommt, der sich ebenfalls im \gls{NavMesh} befindet, wird er sich auf den kürzesten Weg  zu diesem Punkt bewegen.
+
+\subsection{Ablauf}
+Wenn die Piraten auf dem Level erscheinen, überprüfen sie zuerst, ob der Schatz bereits gefunden wurde. Wenn dies der Fall ist, gehen sie zum Schatz und ignorieren alles andere. Wenn dies nicht der Fall ist, suchen sie sich eine zufälligen Punkt in einem bestimmten Radius, zu dem sie sich bewegen können und gehen dann zu ihm. Während der Bewegung halten die Piraten Ausschau nach dem Schatz und wenn sie ihn finden, bleiben sie sofort stehen, holen sich vom Level eine Liste von allen Instanzen derselben Klasse und benachrichtigen diese, dass der Schatz gefunden wurde und wo er sich befindet.
+Diese Funktion befindet sich in einer Endlosschleife, die entweder nach dem Erreichen des Punktes oder dem Finden des Schatzes von vorne beginnt.
 
 \section{Umsetzung in Unity Engine}
 
