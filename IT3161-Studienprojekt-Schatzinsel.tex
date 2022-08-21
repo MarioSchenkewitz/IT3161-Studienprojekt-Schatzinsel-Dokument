@@ -370,22 +370,22 @@ Betrachtet werden in dieser Arbeit die Umsetzung in Java, Unreal Engine und Unit
 %%%%%%%%%%% Einführung
 
 \chapter{Einleitung}\label{sec:einleitung}
-Die \gls{OOP} ist ein heutzutage weit verbreitetes Computerprogrammiermodell oder Programmierparadigma. In der \gls{OOP} werden Anwendungen um so genannte Objekte und deren Daten herum strukturiert und nicht um Funktionen oder Logik. So fokussiert sich die \gls{OOP} auf Objekte mit denen eine Anwendung interagiert, diese Objekte können als Datenfeld mit Attributen und eigenem Verhalten angesehen werden.
+Die \gls{OOP} ist ein heutzutage weit verbreitetes Computerprogrammiermodell oder Programmierparadigma. In der \gls{OOP} werden Anwendungen um so genannte Objekte und deren Daten herum strukturiert und nicht um Funktionen oder Logik. So fokussiert sich die \gls{OOP} auf Objekte, mit denen eine Anwendung interagiert, diese Objekte können als Datenfeld mit Attributen und eigenem Verhalten angesehen werden.
 
 Einen tieferen Einblick in das Thema der \gls{OOP} soll der Abschnitt \ref{sec:Grundlagen} bieten, in dem die Basis für die \gls{OOP} näher erörtert wird.
 
 Thema dieses Studienprojektes ist es sich dieses Programmierparadigma zunutze zu machen, um ein Spiel zu entwickeln.\\
-Der Titel des Spiels ist \glqq Schatzinsel\grqq, es handelt von drei Piraten die sich auf einer Insel befinden, auf der ebenfalls ein Schatz versteckt ist. Es ist ihnen unbekannt wo sich dieser Schatz befinden. Durch zufällige Bewegung über die Insel wollen sie versuchen diesen Schatz zu finden. Jeder der Piraten hat verschiedene Eigenschaften, wie zum Beispiel Geschwindigkeit.\\
+Der Titel des Spiels ist \glqq Schatzinsel\grqq, es handelt von drei Piraten, die sich auf einer Insel befinden, auf der ebenfalls ein Schatz versteckt ist. Es ist ihnen unbekannt wo sich dieser Schatz befinden. Durch zufällige Bewegung über die Insel wollen sie versuchen diesen Schatz zu finden. Jeder der Piraten hat verschiedene Eigenschaften, wie zum Beispiel Geschwindigkeit.\\
 Sobald einer der Piraten den Schatz entdeckt, ruft er die anderen zu sich. Am Ende versammeln sie sich alle um den Schatz.
 
 Dieser Umstand soll durch das Spiel modelliert und gegebenenfalls erweitert werden.
 
 \chapter{Grundlagen}\label{sec:Grundlagen}
 \section{Objektorientierte Programmierung}
-\gls{OOPL} eignen sich durch die Konzentration auf die Objekte mit denen das Programm interagieren soll dazu, dass Software Wartbar und lesbar bleibt. Objekte und ihre Methoden können getrennt voneinander erstellt und programmiert werden. Diese Unterteilung in Einzelteile ermöglicht des Weiteren die Wiederverwendbarkeit von Code, also dem Quelltext, entweder in dem die Klasse selbst wiederverwendet wird, oder eine andere Klasse von ihr erbt. Dazu mehr im Abschnitt \ref{sec:Vererbung}
+\gls{OOPL} eignen sich durch die Konzentration auf die Objekte, mit denen das Programm interagieren soll, dazu, dass Software Wartbar und lesbar bleibt. Objekte und ihre Methoden können getrennt voneinander erstellt und programmiert werden. Diese Unterteilung in Einzelteile ermöglicht des Weiteren die Wiederverwendbarkeit von Code, also dem Quelltext, entweder in dem die Klasse selbst wiederverwendet wird, oder eine andere Klasse von ihr erbt. Dazu mehr im Abschnitt \ref{sec:Vererbung}
 
 \gls{OOP} ist ein Programmierstil, der mittlerweile in Unternehmen, Industrie und akademischen Kreisen seinen Platz gefunden hat. Es wird ein natürlicheres und dadurch ein mächtigeres Entwurfsparadigma insofern erwartet, dass ein Programmierer produktiver ist, wenn das Anwendungsmodell näher am Problem modelliert werden kann, dass gelöst wird.\\
-Anders gesagt ist eine \gls{OOPL} mächtiger, weil es einem Programmierer erlaubt ein Problem zu lösen, dass die Struktur einer Welt nachbildet in welcher das Problem entstand. Vertrautheit mit solch einer Sprache eröffnet Wege zu einer klaren und natürlichen Lösung \cite{OOPL}.
+Anders gesagt ist eine \gls{OOPL} mächtiger, weil es einem Programmierer erlaubt ein Problem zu lösen, dass die Struktur einer Welt nachbildet, in welcher das Problem entstand. Vertrautheit mit solch einer Sprache eröffnet Wege zu einer klaren und natürlichen Lösung \cite{OOPL}.
 
 Es werden also im betrachteten Fall der Schatzinsel die Objekte, die aus der echten Welt bekannt sind, so modelliert, dass die Interaktionen und Verhaltensweisen natürlich in einer Anwendung modelliert werden können.
 
@@ -436,7 +436,7 @@ private int x, y;
 }
 \end{lstlisting}
 
-Im Listing \ref{lst:Java-Operation} wird zum Beispiel durch die Funktion \glqq setXY()\grqq{}  ermöglicht, dass x und y gesetzt werden können. Es ist zu bemerken, dass verschiedene Sichtbarkeiten gesetzt werden. Dadurch, dass x und y auf \emph{private} gesetzt sind, können sie also von außen nur durch die Funktion \glqq setXY()\grqq{} geändert werden.  
+Im Listing \ref{lst:Java-Operation} wird zum Beispiel durch die Funktion \glqq setXY()\grqq{} ermöglicht, dass x und y gesetzt werden können. Es ist zu bemerken, dass verschiedene Sichtbarkeiten gesetzt werden. Dadurch, dass x und y auf \emph{private} gesetzt sind, können sie also von außen nur durch die Funktion \glqq setXY()\grqq{} geändert werden.  
 Dies veranschaulicht auch das Konzept der Verkapselung \cite{OOPL} Seite 4.  
 
 Datenabstraktion in ihrer vollen Kapazität beschreibt also die Möglichkeit für Programmierer ihre eigenen Datentypen zu definieren, diese Typen können eine Heterogene Struktur haben und die Sicht auf diese kann eingeschränkt werden. Außerdem ist es möglich Operationen innerhalb dieser Datentypen zu haben.  
@@ -551,22 +551,34 @@ Für das Programmieren können entweder Blueprints, Unreal`s eigene visuelle Pro
 
 
 \section{Unity Engine}
-Die Unity Engine ist eine weitverbreite Entwicklungsumgebung zur Entwicklung von Spielen, aber auch zur Darstellung und Simulation von z.B. Architekturprojekten oder anderer 3D- Modellierungen, sowie zur Produktion von Filmen. Neben der 3D- Modellierung unterstützt Unity auch 2D Projekte in vollem Umfang. Die Entwicklung in Unity erfolgt primär im eigenen Editor, dieser bietet viele Möglichkeiten um die Programmierung so einfach wie möglich zu halten. Die Entwicklung erfolgt hauptsächlich in C#. Unity ermöglicht zudem auch eine erleichterte Wiederverwendung von Objekten als \qlqq Prefabs \qlqq, welche alle Attribute wie Modelle, aber auch alle eingebundenen Scripte gleich wiederzuverwenden. Unity unterstützt neben allen Betriebssystemen auf dem PC auch Android, sowie eine Vielzahl an Konsolen. 
+Die Unity Engine ist eine weitverbreitete Entwicklungsumgebung zur Entwicklung von Spielen, aber auch zur Darstellung und Simulation von z.B. Architekturprojekten oder anderer 3D- Modellierungen, sowie zur Produktion von Filmen. Neben der 3D- Modellierung unterstützt Unity auch 2D Projekte in vollem Umfang. Die Entwicklung in Unity erfolgt primär im eigenen Editor, dieser bietet viele Möglichkeiten, um die Programmierung so einfach wie möglich zu halten. Die Entwicklung erfolgt hauptsächlich in C\#. Unity ermöglicht zudem auch eine erleichterte Wiederverwendung von Objekten als \glqq Prefabs\grqq , welche alle Attribute wie Modelle, aber auch alle eingebundenen Skripte gleich wiederzuverwenden. Unity unterstützt neben allen Betriebssystemen auf dem PC auch Android, sowie eine Vielzahl an Konsolen. 
 
 \chapter{Verwendete Werkzeuge}
 \section{Git und Github}
+Git ist eine Software. Sie dient zur Verwaltung von Versionen beziehungsweise der Versionskontrolle von Projekten. Es wird ermöglicht zu alten Versionen zurückzukehren, Veränderungen zu vergleichen und dient auch als Werkzeug für die Zusammenarbeit von mehreren Personen am selben Projekt.  
+
+Git kann auf verschiedene Arten und Weisen verwendet werden, so kann es über die Kommandozeile, in Github Desktop oder mit einem Git-Klienten ausgeführt werden.
+
+Es werden alle Dateien und Änderungen innerhalb eines Projektordners erfasst und festgehalten, um dadurch nun die Zusammenarbeit zu ermöglichen wird noch eine weitere Plattform benötigt.  
+Ein Dienst dient als Host der Projekte auf dem der gesamte Quellcode und alle notwendigen Dateien gespeichert werden. Wir haben für dieses Projekt GitHub gewählt.
+
+GitHub ermöglicht es nun gespeicherte Projekte mit anderen Benutzern zu teilen und sie zu Klonen. Arbeiten mehrere Personen am selben Projekt, so wird beim Hochladen der Änderungen auf den gewählten Dienst verglichen auf welchem Stand sich das Projekt befindet und automatisch verglichen, ob Neuerungen auf der vorhandenen version basieren oder ob sie auf einer älteren Version vorgenommen wurden.  
+
+Wenn Aktualisierungen des Projekts gab, dann bietet Git die Möglichkeit, Konflikte zu beseitigen, um die verschiedenen Versionsstände zu vereinen.
+
+Git bietet noch viele weitere Funktionen, die die Zusammenarbeit erleichtern und fördern, die in diesem Dokument nicht näher behandelt werden.
+
 \section{Eclipse}
-Eclipse ist eine integrierte Entwicklungsumgebung die hauptsächlich zum programmieren in der Sprache Java dient. Es bietet ein ausgiebiges Plug-in System mit dem es erweitert werden kann und auch in anderen Programmiersprachen entwickelt werden kann.
+Eclipse ist eine integrierte Entwicklungsumgebung die hauptsächlich zum Programmieren in der Sprache Java dient. Es bietet ein ausgiebiges Plug-in System, mit dem es erweitert werden kann und auch in anderen Programmiersprachen entwickelt werden kann.
 Es wird heutzutage von der Eclipse Foundation entwickelt. Beliebte alternativen zu Eclipse für die Entwicklung von Programmen in Java sind unter anderen zum Beispiel IntelliJ IDEA von JetBrains und NetBeans von Apachi.
 
 \section{Unreal Engine Editor}
-
 Der Unreal Engine Editor ist die Entwicklungsumgebung für Unreal Engine Projekte. Im Editor sind viele Werkzeuge enthalten, mit denen verschiedenste Datentypen, die bei der Entwicklung verwendet werden können, bearbeiten werden können. 
 Die Auswahl hierbei ist so groß, dass ganze Projekte entwickeln werden können, ohne ein anderes Programm starten zu müssen.
 
 
 \section{Unity Engine Editor}
-Der Unity Engine Editor ist eine eigens von Unity bereitgestellte Entwicklungsumgebung für die Arbeit mit der Unity Engine. Der Editor stellt dem Entwickler nahezu jedes Werkzeug zur Verfügung was zur Entwicklung eines Projektes in Unity nötig ist. Die Nutzeroberfläche ermöglicht zudem eine einfache Bearbeitung des Projektes. 
+Der Unity Engine Editor ist eine eigens von Unity bereitgestellte Entwicklungsumgebung für die Arbeit mit der Unity Engine. Der Editor stellt dem Entwickler nahezu jedes Werkzeug zur Verfügung, was zur Entwicklung eines Projektes in Unity nötig ist. Die Nutzeroberfläche ermöglicht zudem eine einfache Bearbeitung des Projektes. 
 
 
 \chapter{Realisierung}\label{sec:Realisierung}
@@ -581,7 +593,7 @@ Diese Funktionen werden nach den \glqq MASTeR - Die SOPHIST-Templates für Requi
 	\item Wenn das Programm gestartet wird, muss das Spiel 1 Spielfeld, 1 Schatz und 3 Piraten Objekte erstellen.
 	\item Wenn die Piraten erstellt werden, muss das Spiel ihnen verschiedene Geschwindigkeiten zuordnen.
 	\item Wenn das Programm gestartet wird, muss das Spiel die Graphische Oberfläche darstellen.
-	\item Wenn das Programm aktualisiert muss das Spiel die Piraten \textbf{zufällig} über das Spielfeld bewegen.
+	\item Wenn das Programm aktualisiert, muss das Spiel die Piraten \textbf{zufällig} über das Spielfeld bewegen.
 \end{itemize}
 
 \textbf{Während des Spiels}
@@ -597,7 +609,7 @@ Diese Funktionen werden nach den \glqq MASTeR - Die SOPHIST-Templates für Requi
 \section{Umsetzung in Java}\label{sec:Umsetzung_Java}
 \emph{Notiz: Der Quelltext der Umsetzung in Java ist auf \url{https://github.com/MarioSchenkewitz/IT3161-Studienprojekt-Schatzinsel-Java/} zu finden.}\\
 
-Um das Spiel zu entwerfen werden verschiedene Klassen benötigt. Zum einen die Klassen, die die Objekte im Spiel darstellen und zum anderen Klassen um das Spiel selber zu verwalten siehe Abbildung \ref{fig:UML_Klassendiagramm_Java}.
+Um das Spiel zu entwerfen, werden verschiedene Klassen benötigt. Zum einen die Klassen, die die Objekte im Spiel darstellen und zum anderen Klassen, um das Spiel selber zu verwalten siehe Abbildung \ref{fig:UML_Klassendiagramm_Java}.
 
 \begin{figure}[H]
   \centering
@@ -606,7 +618,7 @@ Um das Spiel zu entwerfen werden verschiedene Klassen benötigt. Zum einen die K
   \caption[UML-Klassendiagramm für die Umsetzung in Java]{UML-Klassendiagramm für die Umsetzung in Java}    %Bildunterschrift
 \end{figure}
 
-Die zentrale Klasse des Spiels ist die Klasse GamePanel, sie ist das Fenster in dem sich alles abspielt. In der Klasse Main wird ein Fenster erzeugt, in dem sich das GamePanel befindet. In dieser Klasse werden auch alle Einstellungen festgelegt, die Frames die pro Sekunde dargestellt und berechnet werden sollen, Fenstergröße, Skalierung, wie viele Piraten vorhanden sein sollen und weitere Einstellungen.  
+Die zentrale Klasse des Spiels ist die Klasse GamePanel, sie ist das Fenster, in dem sich alles abspielt. In der Klasse Main wird ein Fenster erzeugt, in dem sich das GamePanel befindet. In dieser Klasse werden auch alle Einstellungen festgelegt, die Frames die pro Sekunde dargestellt und berechnet werden sollen, Fenstergröße, Skalierung, wie viele Piraten vorhanden sein sollen und weitere Einstellungen.  
 Für die Entitäten im Spiel selber gibt es eine Überklasse, Entity, von der die anderen Klassen Pirat und Schatz abgeleitet werden.  
 Zur Verwaltung des Spiels sind noch weitere Klassen notwendig.
 
@@ -617,13 +629,13 @@ Zur Verwaltung des Spiels sind noch weitere Klassen notwendig.
 	\item KeyHandler: Implementiert den KeyListener aus der AWT-Bibliothek, der Tastatureingaben verarbeitet.
 	\item TileManager und Tiles: Tiles sind die Spielfeldkacheln, sie stellen die Insel dar und verwalten das Laden der Kacheln aus den verschiedenen Bilddateien und der Kartendatei.
 	\item UI (User Interface): Sie ist für den Text auf dem Bildschirm zuständig,
-	\item Sound: Nutzt die Java Sound Bibliotheken um Tondateien abzuspielen. In unserem Fall die Fanfare, wenn der Schatz gefunden wird.
-	\item CollisionChecker: Überprüft ob die Kacheln, auf die sich eine Entität zubewegt Kollision auslöst.
+	\item Sound: Nutzt die Java Sound Bibliotheken, um Tondateien abzuspielen. In unserem Fall die Fanfare, wenn der Schatz gefunden wird.
+	\item CollisionChecker: Überprüft, ob die Kacheln, auf die sich eine Entität zubewegt Kollision auslöst.
 \end{itemize}
 
-Es werden also alle Verwaltungsklassen in entsprechenden Objekten instanziiert, die Funktion zum starten des Threads definiert. Hier wird auch der Status des Spiels festgelegt, um pausieren zu erlauben.
+Es werden also alle Verwaltungsklassen in entsprechenden Objekten instanziiert, die Funktion zum Starten des Threads definiert. Hier wird auch der Status des Spiels festgelegt, um pausieren zu erlauben.
 
-Moderne Prozessoren sind sehr schnell und können die Aktualisierung der Spielzustände und der Darstellung sehr schnell berechnen. Um das Spiel verfolgen zu können muss die Rate mit der das Spiel dargestellt wird begrenzt werden, siehe Listing \ref{lst:update}.
+Moderne Prozessoren sind sehr schnell und können die Aktualisierung der Spielzustände und der Darstellung sehr schnell berechnen. Um das Spiel verfolgen zu können muss die Rate, mit der das Spiel dargestellt wird, begrenzt werden, siehe Listing \ref{lst:update}.
 
 \begin{lstlisting}[language=Java, caption=Beschränkung der Aktualisierungen, label={lst:update}]
 public void run() {
@@ -646,15 +658,15 @@ public void run() {
 }
 \end{lstlisting}
 
-In der Funktionen update() befindet sich die Logik des Spiels, dessen Auswirkungen im Anschluss mit der Funktion repaint() erneut gezeichnet werden.  
+In der Funktion update() befindet sich die Logik des Spiels, dessen Auswirkungen im Anschluss mit der Funktion repaint() erneut gezeichnet werden.  
 Die Details zu der Logik und allen weiteren Klassen sind im GitHub Repository zu sehen, siehe Notiz am Anfang des Abschnitts \ref{sec:Umsetzung_Java}.
 
-Die Funktion update() überprüft zuerst in welchem Zustand sich das Spiel befindet. Mit der selben Logik wie in Listing \ref{lst:update} wird auch in der update() Funktion sicher gestellt, dass die Piraten nur in bestimmten Zeitabständen ihre Richtung wechseln, dies geschieht in der update() Funktion der Klasse Pirat.
+Die Funktion update() überprüft zuerst in welchem Zustand sich das Spiel befindet. Mit derselben Logik wie in Listing \ref{lst:update} wird auch in der update() Funktion sichergestellt, dass die Piraten nur in bestimmten Zeitabständen ihre Richtung wechseln, dies geschieht in der update() Funktion der Klasse Pirat.
 Wenn der Schatz jedoch gefunden wurde, bewegen sie sich kontinuierlich auf den Schatz zu.
 Der Rest der Logik in dieser Funktion überprüft den Abstand jedes Piraten zum Schatz und setzt den Status der Piraten dem entsprechend, so dass sie sich nicht mehr bewegen, wenn sie am Schatz sind bzw. dass das Spiel zu Ende ist, wenn alle am Schatz sind und eine kleine Fanfare abgespielt wird.
   
   
-Die repaint() Funktion ist eine Funktion der AWT-Bibliothek und sorgt dafür, dass die paintComponent() Funktion aufgerufen wird. Diese zeichnet abhängig vom Spielzustand die Entsprechenden Darstellungen auf den Bildschirm. Dafür wird Hauptsächlich die Verwaltungsklasse UI in Anspruch genommen.
+Die repaint() Funktion ist eine Funktion der AWT-Bibliothek und sorgt dafür, dass die paintComponent() Funktion aufgerufen wird. Diese zeichnet abhängig vom Spielzustand die Entsprechenden Darstellungen auf den Bildschirm. Dafür wird hauptsächlich die Verwaltungsklasse UI in Anspruch genommen.
 
 
 
@@ -662,73 +674,73 @@ Die repaint() Funktion ist eine Funktion der AWT-Bibliothek und sorgt dafür, da
 \emph{Notiz: Der Quelltext der Umsetzung in Unreal ist auf \url{https://github.com/TheidenHD/Studienprojekt/} zu finden. \\
 Das fertige Projekt ist auf \url{https://github.com/TheidenHD/Studienprojekt/releases/tag/1.0/} zu finden.}\\
 
-Aufgrund der Komplexität von Unreal werden einige Standard-Klassen benötigt, die keinen großen Einfluss auf das Endprodukt haben. Beispiele sind hier der GameMode, welcher unter anderem zur Definition von Standard Klassen und die GameInstance, welche hier zum Übermitteln von Variablen zwischen bestimmten Abschnitten im Projektablauf.
+Aufgrund der Komplexität von Unreal werden einige Standard-Klassen benötigt, die keinen großen Einfluss auf das Endprodukt haben. Beispiele sind hier der GameMode, welcher unter anderem zur Definition von Standardklassen und die GameInstance, welche hier zum Übermitteln von Variablen zwischen bestimmten Abschnitten im Projektablauf.
 
 \subsection{UI}
-Die Benutzeroberflächen werden aus einzelnen Bausteinen zusammengesetzt, die am Ende über das laufende Projekt gerendert werden. Wir verwenden dies im Hauptmenü, wo wir ein laufendes Level haben, damit wir einen animierten Hintergrund haben und im Pausemenü, wo wir die Ausführung des Level pausieren, die Bewegungskontrolle deaktivieren und einen Unschärfe-Effekt über den Hintergrund legen. Das Klicken der Knöpfe erzeugt Events, die wir behandeln müssen, um den erwünschten Effekt zu erhalten.
+Die Benutzeroberflächen werden aus einzelnen Bausteinen zusammengesetzt, die am Ende über das laufende Projekt gerendert werden. Wir verwenden dies im Hauptmenü, wo wir ein laufendes Level haben, damit wir einen animierten Hintergrund haben und im Pausemenü, wo wir die Ausführung des Levels pausieren, die Bewegungskontrolle deaktivieren und einen Unschärfe-Effekt über den Hintergrund legen. Das Klicken der Knöpfe erzeugt Events, die wir behandeln müssen, um den erwünschten Effekt zu erhalten.
 
 
 \subsection{Level}
 Das Projekt hat zwei Level, das Erste wird als Hintergrund für das Hauptmenü benutzt. In ihm befinden sich lediglich einige animierte Objekt und eine statische Kamera. Das Zweite ist das Spielfeld, in dem die Piraten nach dem Schatz suchen. Das Spielfeld ist statisch designt, das heißt, die Piraten starten immer an der gleichen Stell und der Schatz wird beim Start an einer von 6 vordefinierten Positionen zufällig platziert. Der Schatz kann hierbei unsichtbar sein, dies ändert allerdings nur die Sichtbarkeit für den Spieler und hat keinen Einfluss auf die Erkennbarkeit durch die Piraten und auf die Kollision. Die Piraten haben unterschiedliche Bewegungsgeschwindigkeiten, Blickwinkel und Sichtweiten. Diese werden in jeder Instanz durch Variablen definiert und nach dem Platzieren selbständig eingelesen und in den jeweiligen Komponenten hineingeschrieben. Außerdem verwendet eine Instanz das weibliche Modell und alle anderen das standard-männliche Modell.
 
 \subsection{Künstliche Intelligenz}
-Für die Künstliche werden 5  verschiedene Objekte verwendet. Vier davon sind für den Piraten und das fünfte ist der Schatz, den die Piraten suchen. Als erstes haben wir den Charakter, welcher alle physischen Komponenten beinhaltet, wie das Bewegungsmodul, die Sensorik und das Modell, welches für den Spieler sichtbar ist. Außerdem ist er für die Animation des Modells zuständig. Als zweites haben wir den Controller, welcher als Gehirn für den Piraten fungiert und alle Entscheidungen trifft. Als drittens haben wir einen Entscheidungsbaum, welcher ein Flowchart ist, für alle Entscheidungen des Controllers.  Und zu guter letzt haben wir noch ein 
+Für die Künstliche werden 5 verschiedene Objekte verwendet. Vier davon sind für den Piraten und das fünfte ist der Schatz, den die Piraten suchen. Als erstes haben wir den Charakter, welcher alle physischen Komponenten beinhaltet, wie das Bewegungsmodul, die Sensorik und das Modell, welches für den Spieler sichtbar ist. Außerdem ist er für die Animation des Modells zuständig. Als zweites haben wir den Controller, welcher als Gehirn für den Piraten fungiert und alle Entscheidungen trifft. Als drittens haben wir einen Entscheidungsbaum, welcher ein Flowchart ist, für alle Entscheidungen des Controllers.  Und zu guter Letzt haben wir noch ein 
 Blackboard, welches Variablen für den Entscheidungsbaum bereithält. Der Schatz hat keine besonderen Bestandteile und wird lediglich im Controller als Ziel für die Sensorik definiert.
 
 \subsection{Sensorik}
-Die Sensorik kann Ziele auf zwei unterschiedliche Methoden wahrnehmen, visuell und auditiv. Da wir hier nicht mit Geräuschen arbeiten, können wir den auditiven Teil einfach ignorieren. Beim visuellen teil wird ein Kegel vom Kopf des Charakters aufgespannt und für alle Objekte der Klasse Pawn und deren Unterklassen die sich in diesem Kegel befinden und nicht durch ein anderes undurchsichtiges Objekt verdeckt werden, wird ein Event ausgeworfen, in dem man nun überprüfen muss ob dieses Objekt das Gesuchte ist.
+Die Sensorik kann Ziele auf zwei unterschiedliche Methoden wahrnehmen, visuell und auditiv. Da wir hier nicht mit Geräuschen arbeiten, können wir den auditiven Teil einfach ignorieren. Beim visuellen Teil wird ein Kegel vom Kopf des Charakters aufgespannt und für alle Objekte der Klasse Pawn und deren Unterklassen, die sich in diesem Kegel befinden und nicht durch ein anderes undurchsichtiges Objekt verdeckt werden, wird ein Event ausgeworfen, in dem man nun überprüfen muss, ob dieses Objekt das Gesuchte ist.
 
 \subsection{Bewegung}
-Damit sich die Piraten bewegen können, benötigen wir zwei Komponenten, das Level in dem der Pirat sich bewegt und das Bewegungsmodul im Piraten selbst. Damit er sich durch das Level bewegen kann, benötigt er mindestens eine Fläche und eine Definition, welche der Flächen begehbar sind. Diese Definition ist das \gls{NavMesh}, welches dynamisch durch das NavMeshBoundsVolume im laufenden Betrieb erstellt wird. Wenn sich der Pirat nun im \gls{NavMesh} befindet und einen Punkt bekommt, der sich ebenfalls im \gls{NavMesh} befindet, wird er sich auf den kürzesten Weg  zu diesem Punkt bewegen.
+Damit sich die Piraten bewegen können, benötigen wir zwei Komponenten, das Level, in dem der Pirat sich bewegt und das Bewegungsmodul im Piraten selbst. Damit er sich durch das Level bewegen kann, benötigt er mindestens eine Fläche und eine Definition, welche der Flächen begehbar sind. Diese Definition ist das \gls{NavMesh}, welches dynamisch durch das NavMeshBoundsVolume im laufenden Betrieb erstellt wird. Wenn sich der Pirat nun im \gls{NavMesh} befindet und einen Punkt bekommt, der sich ebenfalls im \gls{NavMesh} befindet, wird er sich auf den kürzesten Weg zu diesem Punkt bewegen.
 
 \subsection{Ablauf}
-Wenn die Piraten auf dem Level erscheinen, überprüfen sie zuerst, ob der Schatz bereits gefunden wurde. Wenn dies der Fall ist, gehen sie zum Schatz und ignorieren alles andere. Wenn dies nicht der Fall ist, suchen sie sich eine zufälligen Punkt in einem bestimmten Radius, zu dem sie sich bewegen können und gehen dann zu ihm. Während der Bewegung halten die Piraten Ausschau nach dem Schatz und wenn sie ihn finden, bleiben sie sofort stehen, holen sich vom Level eine Liste von allen Instanzen derselben Klasse und benachrichtigen diese, dass der Schatz gefunden wurde und wo er sich befindet.
+Wenn die Piraten auf dem Level erscheinen, überprüfen sie zuerst, ob der Schatz bereits gefunden wurde. Wenn dies der Fall ist, gehen sie zum Schatz und ignorieren alles andere. Wenn dies nicht der Fall ist, suchen sie sich einen zufälligen Punkt in einem bestimmten Radius, zu dem sie sich bewegen können und gehen dann zu ihm. Während der Bewegung halten die Piraten Ausschau nach dem Schatz und wenn sie ihn finden, bleiben sie sofort stehen, holen sich vom Level eine Liste von allen Instanzen derselben Klasse und benachrichtigen diese, dass der Schatz gefunden wurde und wo er sich befindet.
 Diese Funktion befindet sich in einer Endlosschleife, die entweder nach dem Erreichen des Punktes oder dem Finden des Schatzes von vorne beginnt.
 
 \section{Umsetzung in Unity Engine}
-\emph{Notiz: Das Unity Projekt ist auf \url{https://github.com/SvenGamerTV/Studienprojekt.git} zu finden. \\
+\emph{Notiz: Das Unity Projekt ist auf \url{https://github.com/SvenGamerTV/Studienprojekt.git} zu finden.} \\
 \subsection{Grundlagen}
 In diesem Abschnitt werden einige essentielle Begriffe geklärt, welche für das Verständnis der folgenden Abschnitte benötigt wird.
 \subsubsection{GameObjects}
-Ein GameObject in der Unity Engine ist das zentralste Element eines Projektes. Als GameObjects werden alle im sich im Projekt befindlichen Inhalte verstanden, also jedes Objekt, jede Figur, jede Szene und auch z.B. die Kamera sowie die Belichtungsquellen sind GameObjects. Jedes dieser GameObjects hat eigene Eigenschaften, welche für jedes GameObject individuell bestimmt werden. Ein GameObject selbst besitzt jedoch keine Funktionalität, sondern stellt nur ein Modell oder z.B. eine Lichtquelle innerhalb des Projektes dar. Damit ein GameObject mit dem Rest des Projektes oder anderen GameObject interagieren kann muss dem GameObject ein Script o.Ä. zugewiesen werden.
+Ein GameObject in der Unity Engine ist das zentralste Element eines Projektes. Als GameObjects werden alle im sich im Projekt befindlichen Inhalte verstanden, also jedes Objekt, jede Figur, jede Szene und auch z.B. die Kamera sowie die Belichtungsquellen sind GameObjects. Jedes dieser GameObjects hat eigene Eigenschaften, welche für jedes GameObject individuell bestimmt werden. Ein GameObject selbst besitzt jedoch keine Funktionalität, sondern stellt nur ein Modell oder z.B. eine Lichtquelle innerhalb des Projektes dar. Damit ein GameObject mit dem Rest des Projektes oder anderen GameObject interagieren kann muss dem GameObject ein Skript o.Ä. zugewiesen werden.
 
-\subsubsection{Scripte}
-Scripte ermöglichen den GameObject die Interaktion miteinander und mit dem Rest des Projektes. Die gesamte Programmlogik eines Projektes ist in einem oder mehreren Scripten hinterlegt. Scripte können mit anderen Scripten interagieren, je nach Freigabe der einzelnen Funktionen, welche in der Scripten sind. Scripte können zudem auch mit den GameObjects interagieren und u.A. deren Eigenschaften abrufen oder verändern. Hierzu kann ein Script einem GameObject zugewiesen werden und auf die aktuelle Instanz somit zugreifen oder von außen auf eine bestimmte Instanz einwirken. Bei der Zuweisung von Scripte ist ein Scipt nicht an ein einzelnen Objekt gebunden sondern ein Script kann beliebig vielen GameObjects zugewiesen werden. Genauso kann einem einzelnen GameObject auch eine beliebige Anzahl an Scripten zugewiesen sein.
+\subsubsection{Skripte}
+Skripte ermöglichen den GameObject die Interaktion miteinander und mit dem Rest des Projektes. Die gesamte Programmlogik eines Projektes ist in einem oder mehreren Skripten hinterlegt. Skripte können mit anderen Skripten interagieren, je nach Freigabe der einzelnen Funktionen, welche in der Skripten sind. Skripte können zudem auch mit den GameObjects interagieren und u.A. deren Eigenschaften abrufen oder verändern. Hierzu kann ein Skript einem GameObject zugewiesen werden und auf die aktuelle Instanz somit zugreifen oder von außen auf eine bestimmte Instanz einwirken. Bei der Zuweisung von Skripte ist ein Skript nicht an ein einzelnes Objekt gebunden, sondern ein Skript kann beliebig vielen GameObjects zugewiesen werden. Genauso kann einem einzelnen GameObject auch eine beliebige Anzahl an Skripten zugewiesen sein.
 
 \subsubsection{Prefabs}
-Ein Prefab ist ein Pre-Fabricated-Object, also ein GameObject, welches u.A. bereits Scripte, Texturen oder Audio-Datei zugewiesen bekommen hat und somit als fertige Figur, Terrainstruktur oder Ähnliches in des Projekt eingebunden werden kann. Prefabs können beliebig oft innerhalb eines Projektes verwendet werden. Jede neue Einbindung eines Prefabs erzeugt eine neue Instanz, welche entweder vom Entwickler selbst oder durch ein Script angesteuert und bearbeitet werden können. Dabei nimmt die Änderung an einer Instanz eines Prefabs keinerlei Einfluss auf die restlichen Instanzen.
+Ein Prefab ist ein Pre-Fabricated-Object, also ein GameObject, welches u.A. bereits Skripte, Texturen oder Audio-Datei zugewiesen bekommen hat und somit als fertige Figur, Terrainstruktur oder Ähnliches in das Projekt eingebunden werden kann. Prefabs können beliebig oft innerhalb eines Projektes verwendet werden. Jede neue Einbindung eines Prefabs erzeugt eine neue Instanz, welche entweder vom Entwickler selbst oder durch ein Skript angesteuert und bearbeitet werden können. Dabei nimmt die Änderung an einer Instanz eines Prefabs keinerlei Einfluss auf die restlichen Instanzen.
 
 \subsection{Objektorientierte Programmierung in Unity}
-Durch die Strukturierung der einzelne Projektelemente in GameObjects und die Instanzierung der GameObjecte arbeitet die Unity Engine objektorientiert. Jedes einzelne GameObject ist hierbei vergleichbar mit z.B. einer Klasse in Java, welche ebenfalls über bestimmte Eigenschaften verfügt, welche bei der Instanzierung bei Objekten des gleichen Modells unterschiedlich aussehen können und jede Instanz unabhängig der anderen agiert. Nach diesem Modell arbeitet auch die Unity Engine. Hier besitzt jedes GameObject einen eigenen Satz Eigenschaften welche bearbeiten werden können ohne das gleich Objekte davon beeinflusst werden.
+Durch die Strukturierung der einzelne Projektelemente in GameObjects und die Instanziierung der GameObjecte arbeitet die Unity Engine objektorientiert. Jedes einzelne GameObject ist hierbei vergleichbar mit z.B. einer Klasse in Java, welche ebenfalls über bestimmte Eigenschaften verfügt, welche bei der Instanziierung bei Objekten des gleichen Modells unterschiedlich aussehen können und jede Instanz unabhängig der anderen agiert. Nach diesem Modell arbeitet auch die Unity Engine. Hier besitzt jedes GameObject einen eigenen Satz Eigenschaften, welche bearbeiten werden können, ohne dass gleich Objekte davon beeinflusst werden.
 
 \subsection{Realisierung der Anforderungen}
 \subsubsection{Bewegung der Piraten}
-Die Piraten sollen sich nach einem zufälligen Muster über das Spielfeld bewegen ohne wiederum bereits besuchte Position wieder zu betreten. hierzu muss konstant eine neue Position für jeden der Piraten erstellt werden. Diese Position muss innerhalb des Spielbereiches liegen und darf vom Piraten vorher noch nicht besucht worden sein. Um dies sicherzustellen muss daher jeder Pirat über eine sich nach jeder Bewegung erweiternde Liste verfügen, welche die Position welche der Pirat hat speichert und bei zukünftigen Bewegungen immer gegengeprüft, ob die Position sich mit einer, welche bereits in der Liste ist deckt. Ist dies der Fall oder die Position würde außerhalb des Spielbereiches liegen, dann wird so lange eine neue Position generiert, bis eine Position gefunden wurde, welche alle Bedingungen erfüllt. Als letztes wird geprüft, ob sich bereits ein Pirat in der Nähe des Schatzes befindet. Ist dies gegeben, dann wird die Position für alle Piraten auf dem Feld auf die des Schatzes gesetzt und die Piraten bewegen sich zum Schatz. Die Ansteuerung aller Piraten ist in diesem Fall möglich da jedem Objekt in Unity ein Tag zugewiesen werden kann, über welchen dann durch eine Methode eine Liste aller Objekte erstellt werden kann, welche dann in diesem Fall nur Objekt mit dem Tag Pirate enthält. Wird nun über diese Liste iteriert, können Methoden für alle Piraten ausgeführt werden. Wenn der Schatz gefunden wurde, wird die Generierung von neuen Positionen gestoppt und dementsprechend bewegen sich die Piraten nicht mehr vom Schatz weg. 
+Die Piraten sollen sich nach einem zufälligen Muster über das Spielfeld bewegen, ohne wiederum bereits besuchte Position wieder zu betreten. hierzu muss konstant eine neue Position für jeden der Piraten erstellt werden. Diese Position muss innerhalb des Spielbereiches liegen und darf vom Piraten vorher noch nicht besucht worden sein. Um dies sicherzustellen, muss daher jeder Pirat über eine sich nach jeder Bewegung erweiternde Liste verfügen, welche die Position, die der Pirat hat, speichert und bei zukünftigen Bewegungen immer überprüft, ob die Position sich mit einer, welche bereits in der Liste ist, deckt. Ist dies der Fall oder die Position würde außerhalb des Spielbereiches liegen, dann wird so lange eine neue Position generiert, bis eine Position gefunden wurde, welche alle Bedingungen erfüllt. Als letztes wird geprüft, ob sich bereits ein Pirat in der Nähe des Schatzes befindet. Ist dies gegeben, dann wird die Position für alle Piraten auf dem Feld auf die des Schatzes gesetzt und die Piraten bewegen sich zum Schatz. Die Ansteuerung aller Piraten ist in diesem Fall möglich da jedem Objekt in Unity ein Tag zugewiesen werden kann, über welchen dann durch eine Methode eine Liste aller Objekte erstellt werden kann, welche dann in diesem Fall nur Objekt mit dem Tag Pirat enthält. Wird nun über diese Liste iteriert, können Methoden für alle Piraten ausgeführt werden. Wenn der Schatz gefunden wurde, wird die Generierung von neuen Positionen gestoppt und dementsprechend bewegen sich die Piraten nicht mehr vom Schatz weg. 
 
 \subsubsection{Änderung der Sichtbarkeit des Schatzes}
-Die Sichtbarkeit des Schatzes soll von zwei Faktoren beeinflusst werden, zum Einen durch einen Input vom Spieler und zum anderen durch das finden des Schatzes durch einen der Piraten. Für den Ersten Fall muss dem Spieler die Möglichkeit geschaffen werden mit dem Spiel zu interagieren. Hierzu wird ein ButtonTrigger verwendet, also wird eine Aktion ausgeführt, sobald der Spieler ein Taste drückt. In dieser Implementation wird die Sichtbarkeit des Schatzes über die Taste V gesteuert. Drückt der Spieler also die V- Taster wird der Schatz unsichtbar oder sichtbar je nach dem was vorher vorgelegen hat. Dies geschieht innerhalb der Update- Methode des Scriptes, welches die Aktionen des Schatzes steuert. Diese Update-Methode wird jeden Tick erneut abgerufen und garantiert somit das der Tastendruck des Nutzer auch erkannt und verarbeitet werden kann, dies Geschieht über eine in der Unity Engine erhaltene Methode Input.KeyUp(KeyCode) diese erfasst in einem Boolean-Wert, ob die als KeyCode angegebene Taste wieder losgelassen wurde. Ist dieser Wert True wird der Renderer, also die Komponente des Schatzes, welche das Modell in 3D auf dem Spielfeld anzeigt, deaktiviert bzw. aktiviert, sollte er vorher deaktiviert worden sein. Zuletzt wird in der Update-Methode erfasst, ob der Schatz bereits gefunden wurde, wenn dies der Fall ist, wird der Renderer aktiv gesetzt und der Einfluss des Tastendrucks wird vom Spiel nicht mehr berücksichtigt, sodass der Schatz nachdem er gefunden wurde immer sichtbar bleibt.
+Die Sichtbarkeit des Schatzes soll von zwei Faktoren beeinflusst werden, zum einen durch einen Input vom Spieler und zum anderen durch das Finden des Schatzes durch einen der Piraten. Für den Ersten Fall muss dem Spieler die Möglichkeit geschaffen werden mit dem Spiel zu interagieren. Hierzu wird ein ButtonTrigger verwendet, also wird eine Aktion ausgeführt, sobald der Spieler eine Taste drückt. In dieser Implementation wird die Sichtbarkeit des Schatzes über die Taste V gesteuert. Drückt der Spieler also die V- Taste wird der Schatz unsichtbar oder sichtbar je nach dem, was vorher vorgelegen hat. Dies geschieht innerhalb der Update- Methode des Skriptes, welches die Aktionen des Schatzes steuert. Diese Update-Methode wird jeden Tick erneut abgerufen und garantiert somit das der Tastendruck des Nutzers auch erkannt und verarbeitet werden kann, dies Geschieht über eine in der Unity Engine erhaltene Methode Input.KeyUp(KeyCode) diese erfasst in einem Boolean-Wert, ob die als KeyCode angegebene Taste wieder losgelassen wurde. Ist dieser Wert True wird der Renderer, also die Komponente des Schatzes, welche das Modell in 3D auf dem Spielfeld anzeigt, deaktiviert bzw. aktiviert, sollte er vorher deaktiviert worden sein. Zuletzt wird in der Update-Methode erfasst, ob der Schatz bereits gefunden wurde, wenn dies der Fall ist, wird der Renderer aktiv gesetzt und der Einfluss des Tastendrucks wird vom Spiel nicht mehr berücksichtigt, sodass der Schatz, nachdem er gefunden wurde, immer sichtbar bleibt.
 
 
 \chapter{Ergebnisse}
 Die Untersuchung der verschiedenen Methoden zur Erstellung eines Spiels in verschiedenen Umgebungen hat ergeben, dass vorgefertigte Umgebungen und Engines viel Aufwand ersparen können. So werden viele Managementklassen schon vorgefertigt ausgeliefert und müssen nicht selbst erstellt werden. Auch deren Logik besteht zum größten Teil schon und kann nach Bedarf modifiziert werden.  
-Diese Rationalisierung durch die angepassten Umgebungen ermöglichen einen schnellen Einstieg in die Entwicklung von neuen Projekten und senkt auch erheblich die Hürde, um in diese Form der Software Entwicklung einzusteigen.
+Diese Rationalisierung durch die angepassten Umgebungen ermöglichen einen schnellen Einstieg in die Entwicklung von neuen Projekten und senkt auch erheblich die Hürde, um in diese Form der Softwareentwicklung einzusteigen.
 
-Die Entwicklung und Auslieferung auf verschiedene Plattformen wird ebenfalls erheblich vereinfacht.
+Die Entwicklung und Auslieferung auf verschiedene Plattformen werden ebenfalls erheblich vereinfacht.
 
-Auch die Tatsache, dass die meisten bekannten Werkzeuge beziehungsweise Plattformen kostenlos erhältlich sind spricht für die Auswahl einer dieser Umgebungen. Weiterhin wird durch die weite Verbreitung und Erhältlichkeit dafür gesorgt, dass es viele Anleitungen, Unterstützung, Beispiele und auch Ressourcen wie Modelle, Musik und Effekte zur Verfügung stehen.
+Auch die Tatsache, dass die meisten bekannten Werkzeuge beziehungsweise Plattformen kostenlos erhältlich sind, spricht für die Auswahl einer dieser Umgebungen. Weiterhin wird durch die weite Verbreitung und Erhältlichkeit dafür gesorgt, dass es viele Anleitungen, Unterstützung, Beispiele und auch Ressourcen wie Modelle, Musik und Effekte zur Verfügung stehen.
 
 \chapter{Fazit}
 In diesem Studienprojekt wurde zuerst betrachtet unter welchen Bedingungen Spiele entwickelt werden können. Als Grundlage dient die \gls{OOP}, dessen grundlegende Kerneigenschaften betrachtet wurden.
-Anschließend wurden drei verschiedene Umgebungen für die Entwicklung des Prototypen erörtert.  
+Anschließend wurden drei verschiedene Umgebungen für die Entwicklung des Prototyps erörtert.  
 Ein möglicher Punkt der Verbesserung könnte es sein, weitere Umgebungen zu betrachten, da sich diese eventuell doch erheblicher voneinander unterscheiden als angenommen.  
   
 Es wurde ein kleiner Überblick über die verwendeten Werkzeuge geschaffen und die Anforderungen an das Spiel formuliert. Daraufhin dann die Realisierung in den verschiedenen Umgebungen aufgebrochen und beschrieben.
 
 
 \chapter{Ausblick}
-Dieses Projekt könnte noch erweitert werden in dem neue oder komplexere Anforderungen gestellt und Untersucht werden. Auch könnte die Untersuchung der Umgebungen erweitert werden, indem weitere in frage kommende Umgebungen betrachtet und verglichen Werden.  
+Dieses Projekt könnte noch erweitert werden, indem neue oder komplexere Anforderungen gestellt und untersucht werden. Auch könnte die Untersuchung der Umgebungen erweitert werden, indem weitere in Frage kommende Umgebungen betrachtet und verglichen werden.  
   
-Andererseits wäre es auch möglich weiter zu erörtern in wie fern Simulationen zur Untersuchung von anderen Gegebenheiten sinnvoll sind und ob diese vergleichbare Ergebnisse liefern. Zum Beispiel könnte untersucht werden, wie sich verschiedene Suchmuster für die Piraten bei der Suche nach dem Schatz auswirken und welche am effektivsten sind.
+Andererseits wäre es auch möglich weiter zu erörtern, inwiefern Simulationen zur Untersuchung von anderen Gegebenheiten sinnvoll sind und ob diese vergleichbare Ergebnisse liefern. Zum Beispiel könnte untersucht werden, wie sich verschiedene Suchmuster für die Piraten bei der Suche nach dem Schatz auswirken und welche am effektivsten sind.
 
 %%% Codesnippets
 
