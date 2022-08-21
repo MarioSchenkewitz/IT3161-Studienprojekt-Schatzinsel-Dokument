@@ -252,7 +252,7 @@ numbersep=5pt
 %%%%%%%%%%%% Matrikelnummer
 \newcommand{\MatrEins}{612678}
 \newcommand{\MatrZwei}{685593}
-\newcommand{\MatrDrei}{}
+\newcommand{\MatrDrei}{696087}
 %%%%%%%%%%%% Modul
 \newcommand{\Modul}{IT3161, Studienprojekt I}
 %%%%%%%%%%%% Anzahl Wörter
@@ -551,7 +551,7 @@ Für das Programmieren können entweder Blueprints, Unreal`s eigene visuelle Pro
 
 
 \section{Unity Engine}
-
+Die Unity Engine ist eine weitverbreite Entwicklungsumgebung zur Entwicklung von Spielen, aber auch zur Darstellung und Simulation von z.B. Architekturprojekten oder anderer 3D- Modellierungen, sowie zur Produktion von Filmen. Neben der 3D- Modellierung unterstützt Unity auch 2D Projekte in vollem Umfang. Die Entwicklung in Unity erfolgt primär im eigenen Editor, dieser bietet viele Möglichkeiten um die Programmierung so einfach wie möglich zu halten. Die Entwicklung erfolgt hauptsächlich in C#. Unity ermöglicht zudem auch eine erleichterte Wiederverwendung von Objekten als \qlqq Prefabs \qlqq, welche alle Attribute wie Modelle, aber auch alle eingebundenen Scripte gleich wiederzuverwenden. Unity unterstützt neben allen Betriebssystemen auf dem PC auch Android, sowie eine Vielzahl an Konsolen. 
 
 \chapter{Verwendete Werkzeuge}
 \section{Git und Github}
@@ -566,7 +566,7 @@ Die Auswahl hierbei ist so groß, dass ganze Projekte entwickeln werden können,
 
 
 \section{Unity Engine Editor}
-
+Der Unity Engine Editor ist eine eigens von Unity bereitgestellte Entwicklungsumgebung für die Arbeit mit der Unity Engine. Der Editor stellt dem Entwickler nahezu jedes Werkzeug zur Verfügung was zur Entwicklung eines Projektes in Unity nötig ist. Die Nutzeroberfläche ermöglicht zudem eine einfache Bearbeitung des Projektes. 
 
 
 \chapter{Realisierung}\label{sec:Realisierung}
@@ -686,6 +686,27 @@ Wenn die Piraten auf dem Level erscheinen, überprüfen sie zuerst, ob der Schat
 Diese Funktion befindet sich in einer Endlosschleife, die entweder nach dem Erreichen des Punktes oder dem Finden des Schatzes von vorne beginnt.
 
 \section{Umsetzung in Unity Engine}
+\emph{Notiz: Das Unity Projekt ist auf \url{https://github.com/SvenGamerTV/Studienprojekt.git} zu finden. \\
+\subsection{Grundlagen}
+In diesem Abschnitt werden einige essentielle Begriffe geklärt, welche für das Verständnis der folgenden Abschnitte benötigt wird.
+\subsubsection{GameObjects}
+Ein GameObject in der Unity Engine ist das zentralste Element eines Projektes. Als GameObjects werden alle im sich im Projekt befindlichen Inhalte verstanden, also jedes Objekt, jede Figur, jede Szene und auch z.B. die Kamera sowie die Belichtungsquellen sind GameObjects. Jedes dieser GameObjects hat eigene Eigenschaften, welche für jedes GameObject individuell bestimmt werden. Ein GameObject selbst besitzt jedoch keine Funktionalität, sondern stellt nur ein Modell oder z.B. eine Lichtquelle innerhalb des Projektes dar. Damit ein GameObject mit dem Rest des Projektes oder anderen GameObject interagieren kann muss dem GameObject ein Script o.Ä. zugewiesen werden.
+
+\subsubsection{Scripte}
+Scripte ermöglichen den GameObject die Interaktion miteinander und mit dem Rest des Projektes. Die gesamte Programmlogik eines Projektes ist in einem oder mehreren Scripten hinterlegt. Scripte können mit anderen Scripten interagieren, je nach Freigabe der einzelnen Funktionen, welche in der Scripten sind. Scripte können zudem auch mit den GameObjects interagieren und u.A. deren Eigenschaften abrufen oder verändern. Hierzu kann ein Script einem GameObject zugewiesen werden und auf die aktuelle Instanz somit zugreifen oder von außen auf eine bestimmte Instanz einwirken. Bei der Zuweisung von Scripte ist ein Scipt nicht an ein einzelnen Objekt gebunden sondern ein Script kann beliebig vielen GameObjects zugewiesen werden. Genauso kann einem einzelnen GameObject auch eine beliebige Anzahl an Scripten zugewiesen sein.
+
+\subsubsection{Prefabs}
+Ein Prefab ist ein Pre-Fabricated-Object, also ein GameObject, welches u.A. bereits Scripte, Texturen oder Audio-Datei zugewiesen bekommen hat und somit als fertige Figur, Terrainstruktur oder Ähnliches in des Projekt eingebunden werden kann. Prefabs können beliebig oft innerhalb eines Projektes verwendet werden. Jede neue Einbindung eines Prefabs erzeugt eine neue Instanz, welche entweder vom Entwickler selbst oder durch ein Script angesteuert und bearbeitet werden können. Dabei nimmt die Änderung an einer Instanz eines Prefabs keinerlei Einfluss auf die restlichen Instanzen.
+
+\subsection{Objektorientierte Programmierung in Unity}
+Durch die Strukturierung der einzelne Projektelemente in GameObjects und die Instanzierung der GameObjecte arbeitet die Unity Engine objektorientiert. Jedes einzelne GameObject ist hierbei vergleichbar mit z.B. einer Klasse in Java, welche ebenfalls über bestimmte Eigenschaften verfügt, welche bei der Instanzierung bei Objekten des gleichen Modells unterschiedlich aussehen können und jede Instanz unabhängig der anderen agiert. Nach diesem Modell arbeitet auch die Unity Engine. Hier besitzt jedes GameObject einen eigenen Satz Eigenschaften welche bearbeiten werden können ohne das gleich Objekte davon beeinflusst werden.
+
+\subsection{Realisierung der Anforderungen}
+\subsubsection{Bewegung der Piraten}
+Die Piraten sollen sich nach einem zufälligen Muster über das Spielfeld bewegen ohne wiederum bereits besuchte Position wieder zu betreten. hierzu muss konstant eine neue Position für jeden der Piraten erstellt werden. Diese Position muss innerhalb des Spielbereiches liegen und darf vom Piraten vorher noch nicht besucht worden sein. Um dies sicherzustellen muss daher jeder Pirat über eine sich nach jeder Bewegung erweiternde Liste verfügen, welche die Position welche der Pirat hat speichert und bei zukünftigen Bewegungen immer gegengeprüft, ob die Position sich mit einer, welche bereits in der Liste ist deckt. Ist dies der Fall oder die Position würde außerhalb des Spielbereiches liegen, dann wird so lange eine neue Position generiert, bis eine Position gefunden wurde, welche alle Bedingungen erfüllt. Als letztes wird geprüft, ob sich bereits ein Pirat in der Nähe des Schatzes befindet. Ist dies gegeben, dann wird die Position für alle Piraten auf dem Feld auf die des Schatzes gesetzt und die Piraten bewegen sich zum Schatz. Die Ansteuerung aller Piraten ist in diesem Fall möglich da jedem Objekt in Unity ein Tag zugewiesen werden kann, über welchen dann durch eine Methode eine Liste aller Objekte erstellt werden kann, welche dann in diesem Fall nur Objekt mit dem Tag Pirate enthält. Wird nun über diese Liste iteriert, können Methoden für alle Piraten ausgeführt werden. Wenn der Schatz gefunden wurde, wird die Generierung von neuen Positionen gestoppt und dementsprechend bewegen sich die Piraten nicht mehr vom Schatz weg. 
+
+\subsubsection{Änderung der Sichtbarkeit des Schatzes}
+Die Sichtbarkeit des Schatzes soll von zwei Faktoren beeinflusst werden, zum Einen durch einen Input vom Spieler und zum anderen durch das finden des Schatzes durch einen der Piraten. Für den Ersten Fall muss dem Spieler die Möglichkeit geschaffen werden mit dem Spiel zu interagieren. Hierzu wird ein ButtonTrigger verwendet, also wird eine Aktion ausgeführt, sobald der Spieler ein Taste drückt. In dieser Implementation wird die Sichtbarkeit des Schatzes über die Taste V gesteuert. Drückt der Spieler also die V- Taster wird der Schatz unsichtbar oder sichtbar je nach dem was vorher vorgelegen hat. Dies geschieht innerhalb der Update- Methode des Scriptes, welches die Aktionen des Schatzes steuert. Diese Update-Methode wird jeden Tick erneut abgerufen und garantiert somit das der Tastendruck des Nutzer auch erkannt und verarbeitet werden kann, dies Geschieht über eine in der Unity Engine erhaltene Methode Input.KeyUp(KeyCode) diese erfasst in einem Boolean-Wert, ob die als KeyCode angegebene Taste wieder losgelassen wurde. Ist dieser Wert True wird der Renderer, also die Komponente des Schatzes, welche das Modell in 3D auf dem Spielfeld anzeigt, deaktiviert bzw. aktiviert, sollte er vorher deaktiviert worden sein. Zuletzt wird in der Update-Methode erfasst, ob der Schatz bereits gefunden wurde, wenn dies der Fall ist, wird der Renderer aktiv gesetzt und der Einfluss des Tastendrucks wird vom Spiel nicht mehr berücksichtigt, sodass der Schatz nachdem er gefunden wurde immer sichtbar bleibt.
 
 
 \chapter{Ergebnisse}
